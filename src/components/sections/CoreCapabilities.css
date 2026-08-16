@@ -1,0 +1,81 @@
+/* ─── Core Capabilities Section ─── */
+
+.core-capabilities {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-2);
+}
+
+.core-capabilities__grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(201, 162, 39, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 75%);
+}
+
+.core-capabilities__grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.core-capabilities__section-meta {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(201, 162, 39, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+.core-capabilities__heading {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.core-capabilities__heading.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.core-capabilities__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .core-capabilities__cards {
+    gap: 1.75rem;
+  }
+}
+
+.core-capabilities__accent-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.6;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .core-capabilities__heading {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

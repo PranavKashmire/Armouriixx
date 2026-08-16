@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+/* ─── ARMOURIXX Brand CSS Variables ───────────────────────────── */
+:root {
+  /* Gold palette */
+  --gold:        #C9A227;
+  --gold-light:  #E8C468;
+  --gold-dark:   #B4881F;
+  --gold-muted:  #6B5313;
+
+  /* Ink / dark palette */
+  --ink:         #0A0A0B;
+  --ink-2:       #121214;
+  --ink-3:       #1A1A1D;
+  --ink-4:       #242428;
+  --ink-5:       #2E2E33;
+
+  /* Light text */
+  --cream:       #F5F3EC;
+  --cream-muted: #B8B4A8;
+
+  /* Glass */
+  --glass-bg:    rgba(18, 18, 20, 0.6);
+  --glass-border: rgba(201, 162, 39, 0.15);
+  --glass-gold:  rgba(201, 162, 39, 0.08);
+
+  --background: var(--ink);
+  --foreground: var(--cream);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold:       var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark:  var(--gold-dark);
+  --color-ink:        var(--ink);
+  --color-ink-2:      var(--ink-2);
+  --color-ink-3:      var(--ink-3);
+  --color-cream:      var(--cream);
+  --font-display:     "Bebas Neue", sans-serif;
+  --font-body:        "Inter", sans-serif;
+
+  /* Custom keyframes */
+  --animate-float:       float 4s ease-in-out infinite;
+  --animate-float-slow:  float 6s ease-in-out infinite;
+  --animate-shimmer:     shimmer 2.5s linear infinite;
+  --animate-scan:        scan-line 8s linear infinite;
+  --animate-pulse-gold:  pulse-gold 2s ease-in-out infinite;
+  --animate-marquee:     marquee 30s linear infinite;
+  --animate-marquee-rev: marquee-rev 30s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-10px); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  @keyframes scan-line {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.4); }
+    50%       { box-shadow: 0 0 0 12px rgba(201,162,39,0); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes marquee-rev {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  @keyframes border-beam {
+    0%   { offset-distance: 0%; }
+    100% { offset-distance: 100%; }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes number-tick {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ─── Base Styles ────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent horizontal overflow from wide children */
+main {
+  overflow-x: clip;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Consistent page gutters */
+.page-x {
+  padding-left: clamp(1rem, 4vw, 1.5rem);
+  padding-right: clamp(1rem, 4vw, 1.5rem);
+}
+
+/* Touch-friendly minimum tap targets for interactive controls */
+@media (pointer: coarse) {
+  button:not(.no-min-tap),
+  [role="button"]:not(.no-min-tap) {
+    min-height: 44px;
+  }
+}
+
+/* Body scroll lock when mobile nav is open */
+body.nav-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* ─── Typography ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--ink-2); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+
+/* ─── Selection ──────────────────────────────────────────────── */
+::selection {
+  background: rgba(201, 162, 39, 0.3);
+  color: var(--cream);
+}
+
+/* ─── Glassmorphism Utility ──────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-gold {
+  background: var(--glass-gold);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+}
+
+/* ─── Gold gradient text ─────────────────────────────────────── */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Grain overlay ─────────────────────────────────────────── */
+.grain-overlay::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ─── Section base spacing ───────────────────────────────────── */
+.section-pad {
+  padding-top: clamp(3rem, 8vw, 8rem);
+  padding-bottom: clamp(3rem, 8vw, 8rem);
+}
+
+/* ─── Responsive display headings ────────────────────────────── */
+.heading-display {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.heading-page {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Scan line accent ───────────────────────────────────────── */
+.scan-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.3), transparent);
+  animation: var(--animate-scan);
+  pointer-events: none;
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ─── Hero cursor mask ───────────────────────────────────────── */
+.cursor-mask {
+  --mask-x: 50%;
+  --mask-y: 50%;
+  mask-image: radial-gradient(circle 150px at var(--mask-x) var(--mask-y), black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 150px at var(--mask-x) var(--mask-y), black 0%, transparent 100%);
+}
+
+/* ─── Shimmer button ─────────────────────────────────────────── */
+.shimmer-btn {
+  background: linear-gradient(
+    120deg,
+    var(--gold-dark) 0%,
+    var(--gold-light) 40%,
+    var(--gold) 50%,
+    var(--gold-light) 60%,
+    var(--gold-dark) 100%
+  );
+  background-size: 300% auto;
+  animation: var(--animate-shimmer);
+}
+
+/* ─── Animated beam line ─────────────────────────────────────── */
+.beam-line {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: draw-beam 2s ease forwards;
+}
+@keyframes draw-beam {
+  to { stroke-dashoffset: 0; }
+}
