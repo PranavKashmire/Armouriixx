@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import "./TrueFocus.css";
 
@@ -48,14 +48,16 @@ const TrueFocus = ({
   const onWordChangeRef = useRef(onWordChange);
   useEffect(() => { onWordChangeRef.current = onWordChange; }, [onWordChange]);
 
-  useEffect(() => {
+  const measureFocusRect = () => {
     if (currentIndex === null || currentIndex === -1) return;
-    if (!wordRefs.current[currentIndex] || !containerRef.current) return;
+    const container = containerRef.current;
+    const activeWord = wordRefs.current[currentIndex];
+    if (!container || !activeWord) return;
 
     onWordChangeRef.current?.(currentIndex);
 
-    const parentRect = containerRef.current.getBoundingClientRect();
-    const activeRect = wordRefs.current[currentIndex].getBoundingClientRect();
+    const parentRect = container.getBoundingClientRect();
+    const activeRect = activeWord.getBoundingClientRect();
 
     setFocusRect({
       x: activeRect.left - parentRect.left,
@@ -63,6 +65,26 @@ const TrueFocus = ({
       width: activeRect.width,
       height: activeRect.height,
     });
+  };
+
+  useLayoutEffect(() => {
+    measureFocusRect();
+  }, [currentIndex, words.length]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleResize = () => measureFocusRect();
+    window.addEventListener("resize", handleResize);
+
+    const observer = new ResizeObserver(() => measureFocusRect());
+    observer.observe(container);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      observer.disconnect();
+    };
   }, [currentIndex, words.length]);
 
   const handleMouseEnter = (index: number) => {
@@ -108,6 +130,7 @@ const TrueFocus = ({
 
       <motion.div
         className="focus-frame"
+        initial={false}
         animate={{
           x: focusRect.x,
           y: focusRect.y,
@@ -115,11 +138,16 @@ const TrueFocus = ({
           height: focusRect.height,
           opacity: currentIndex >= 0 ? 1 : 0,
         }}
-        transition={{ duration: animationDuration }}
+        transition={{
+          duration: animationDuration,
+          ease: [0.25, 0.1, 0.25, 1],
+        }}
         style={{
           // @ts-expect-error CSS custom props
           "--border-color": borderColor,
           "--glow-color": glowColor,
+          "--corner-size": "14px",
+          "--corner-offset": "14px",
         }}
       >
         <span className="corner top-left" />

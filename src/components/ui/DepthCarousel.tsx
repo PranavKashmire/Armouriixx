@@ -33,6 +33,10 @@ interface DepthCarouselProps {
   onChange?: (index: number, item: DepthCarouselItem) => void;
   className?: string;
   forceIndex?: number;
+  minScale?: number;
+  verticalAlign?: "center" | "top";
+  /** 2D slide stack — no rotateY / translateZ (mobile-safe) */
+  flat?: boolean;
 }
 
 const DEFAULT_ITEMS: DepthCarouselItem[] = [
@@ -72,6 +76,9 @@ const DepthCarousel = ({
   onChange,
   className = "",
   forceIndex,
+  verticalAlign = "center",
+  minScale = 0.72,
+  flat = false,
 }: DepthCarouselProps) => {
   const data = useMemo(
     () => (Array.isArray(items) ? items : []).map(normalizeItem),
@@ -121,6 +128,9 @@ const DepthCarousel = ({
     loop,
     cardWidth,
     autoplayDelay,
+    verticalAlign,
+    minScale,
+    flat,
   };
 
   const layout = useCallback((pos: number) => {
@@ -129,6 +139,7 @@ const DepthCarousel = ({
     if (!n) return;
     const dir = (cfg.tiltDirection as string) === "left" ? -1 : 1;
     const sc = scaleRef.current;
+    const isFlat = Boolean(cfg.flat);
 
     for (let i = 0; i < n; i++) {
       const el = cardRefs.current[i];
@@ -144,24 +155,29 @@ const DepthCarousel = ({
       const az = Math.abs(d);
       const shown = az <= (cfg.visibleCards as number) + 0.5;
 
-      const tz = -(cfg.depth as number) * d;
-      const tx = dir * (cfg.spread as number) * d;
-      const ry = dir * (cfg.tilt as number) * clamp(d, 0, 1);
+      const tz = isFlat ? 0 : -(cfg.depth as number) * d;
+      const tx = isFlat ? 0 : dir * (cfg.spread as number) * d;
+      const ry = isFlat ? 0 : dir * (cfg.tilt as number) * clamp(d, 0, 1);
 
-      let opacity = d < 0 ? Math.max(0, 1 + d) : 1;
+      let opacity = isFlat ? (d === 0 ? 1 : 0) : d < 0 ? Math.max(0, 1 + d) : 1;
       if (!shown) opacity = 0;
 
-      const brightness = Math.max(0.15, 1 - back * (cfg.falloff as number));
-      const blurPx =
-        (cfg.blur as number) > 0
+      const brightness = isFlat ? 1 : Math.max(0.15, 1 - back * (cfg.falloff as number));
+      const blurPx = isFlat
+        ? 0
+        : (cfg.blur as number) > 0
           ? Math.min(
               cfg.blur as number,
               (back / Math.max(1, cfg.visibleCards as number)) * (cfg.blur as number)
             )
           : 0;
       const zi = Math.round(2000 - d * 20);
+      const anchorY =
+        (cfg.verticalAlign as string) === "top" ? "0%" : "-50%";
 
-      el.style.transform = `translate(-50%, -50%) scale(${sc}) translateX(${tx.toFixed(2)}px) translateZ(${tz.toFixed(2)}px) rotateY(${ry.toFixed(3)}deg)`;
+      el.style.transform = isFlat
+        ? `translate(-50%, ${anchorY}) scale(${sc})`
+        : `translate(-50%, ${anchorY}) scale(${sc}) translateX(${tx.toFixed(2)}px) translateZ(${tz.toFixed(2)}px) rotateY(${ry.toFixed(3)}deg)`;
       el.style.opacity = opacity.toFixed(3);
       el.style.filter = `brightness(${brightness.toFixed(3)}) blur(${blurPx.toFixed(2)}px)`;
       el.style.zIndex = String(zi);
@@ -245,8 +261,10 @@ const DepthCarousel = ({
     const ro = new ResizeObserver((entries) => {
       const w = entries[0].contentRect.width;
       const cfg = cfgRef.current;
-      const needed = (cfg.cardWidth as number) + Math.abs(cfg.spread as number) * 2 + 120;
-      scaleRef.current = clamp(w / needed, 0.4, 1);
+      const spread = Math.abs(cfg.spread as number);
+      const needed = (cfg.cardWidth as number) + spread * 2 + 32;
+      const floor = (cfg.minScale as number) ?? 0.72;
+      scaleRef.current = cfg.flat ? 1 : clamp(w / needed, floor, 1);
       layout(posRef.current);
     });
     ro.observe(root);
@@ -409,6 +427,9 @@ const DepthCarousel = ({
     cardHeight,
     radius,
     count,
+    verticalAlign,
+    minScale,
+    flat,
   ]);
 
   useEffect(
@@ -423,7 +444,7 @@ const DepthCarousel = ({
   return (
     <div
       ref={rootRef}
-      className={`depth-carousel ${className}`.trim()}
+      className={`depth-carousel${verticalAlign === "top" ? " depth-carousel--top" : ""}${flat ? " depth-carousel--flat" : ""} ${className}`.trim()}
       style={{ "--dc-perspective": `${perspective}px` } as React.CSSProperties}
       role="group"
       aria-roledescription="carousel"

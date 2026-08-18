@@ -67,31 +67,31 @@ function IndustryCard({
 
 function MarqueeRow({
   items,
-  direction = "left",
+  direction,
+  startIndex,
   duration = 40,
 }: {
   items: Array<{ name: string; tag: string }>;
-  direction?: "left" | "right";
+  direction: "ltr" | "rtl";
+  startIndex: number;
   duration?: number;
 }) {
   const doubled = [...items, ...items];
-  const animName = direction === "left" ? "marquee" : "marquee-rev";
 
   return (
-    <div className="flex overflow-hidden w-full">
+    <div className="industries-marquee-row flex overflow-hidden w-full">
       <div
-        className="flex gap-3 shrink-0"
-        style={{
-          animation: `${animName} ${duration}s linear infinite`,
-          width: "max-content",
-        }}
+        className={`industries-marquee-track ${
+          direction === "ltr" ? "industries-marquee-ltr" : "industries-marquee-rtl"
+        }`}
+        style={{ animationDuration: `${duration}s` }}
       >
         {doubled.map((item, i) => (
           <IndustryCard
             key={`${item.name}-${i}`}
             name={item.name}
             tag={item.tag}
-            icon={industryIcons[i % industryIcons.length]}
+            icon={industryIcons[(startIndex + (i % items.length)) % industryIcons.length]}
           />
         ))}
       </div>
@@ -102,6 +102,8 @@ function MarqueeRow({
 export default function IndustriesMarquee() {
   const shouldReduceMotion = useReducedMotion();
   const industries = siteConfig.industries;
+  const rowOne = industries.slice(0, 6);
+  const rowTwo = industries.slice(6, 12);
 
   if (shouldReduceMotion) {
     return (
@@ -185,9 +187,11 @@ export default function IndustriesMarquee() {
         style={{ background: "linear-gradient(270deg, #0A0A0B 0%, transparent 100%)" }}
       />
 
-      <div className="space-y-3">
-        <MarqueeRow items={industries.slice(0, 6)} direction="left" duration={42} />
-        <MarqueeRow items={industries.slice(6, 12)} direction="right" duration={48} />
+      <div className="space-y-3 relative z-0">
+        {/* Top row — scrolls left → right */}
+        <MarqueeRow items={rowOne} direction="ltr" startIndex={0} duration={38} />
+        {/* Bottom row — scrolls right → left */}
+        <MarqueeRow items={rowTwo} direction="rtl" startIndex={6} duration={44} />
       </div>
     </section>
   );

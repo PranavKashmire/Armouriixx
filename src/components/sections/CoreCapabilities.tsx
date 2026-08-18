@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { coreServices } from "@/data/coreServices";
 import CapabilityCard from "@/components/sections/CapabilityCard";
 import ServiceLightbox from "@/components/sections/ServiceLightbox";
+import { useCardScrollSpy } from "@/hooks/useCardScrollSpy";
 import "./CoreCapabilities.css";
 
 export default function CoreCapabilities() {
@@ -23,6 +24,7 @@ export default function CoreCapabilities() {
   );
   const [headingVisible, setHeadingVisible] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const scrollActiveIndex = useCardScrollSpy(cardRefs, coreServices.length);
 
   const setCardRef = useCallback((index: number) => (el: HTMLElement | null) => {
     cardRefs.current[index] = el;
@@ -32,27 +34,33 @@ export default function CoreCapabilities() {
     imageRefs.current[index] = el;
   }, []);
 
+  const skipUrlSyncRef = useRef(true);
+
+  const syncHash = useCallback((index: number | null) => {
+    if (typeof window === "undefined") return;
+    const path = window.location.pathname;
+    if (index === null) {
+      if (window.location.hash) history.replaceState(null, "", path);
+      return;
+    }
+    const hash = `#${coreServices[index].id}`;
+    if (window.location.hash !== hash) {
+      history.replaceState(null, "", `${path}${hash}`);
+    }
+  }, []);
+
   const openService = useCallback((index: number) => {
-    setExpandedIndex((prev) => {
-      const next = prev === index ? null : index;
-      if (typeof window !== "undefined") {
-        const path = window.location.pathname;
-        if (next === null) {
-          history.replaceState(null, "", path);
-        } else {
-          history.replaceState(null, "", `#${coreServices[next].id}`);
-        }
-      }
-      return next;
-    });
+    setExpandedIndex((prev) => (prev === index ? null : index));
   }, []);
 
   const closeService = useCallback(() => {
     setExpandedIndex(null);
-    if (typeof window !== "undefined") {
-      history.replaceState(null, "", window.location.pathname);
-    }
   }, []);
+
+  useEffect(() => {
+    if (skipUrlSyncRef.current) return;
+    syncHash(expandedIndex);
+  }, [expandedIndex, syncHash]);
 
   useEffect(() => {
     const syncFromHash = () => {
@@ -67,6 +75,9 @@ export default function CoreCapabilities() {
 
     syncFromHash();
     window.addEventListener("hashchange", syncFromHash);
+    requestAnimationFrame(() => {
+      skipUrlSyncRef.current = false;
+    });
     return () => window.removeEventListener("hashchange", syncFromHash);
   }, []);
 
@@ -182,11 +193,12 @@ export default function CoreCapabilities() {
 
           gsap.fromTo(
             card,
-            { y: 40, opacity: 0 },
+            { y: 40, opacity: 0, clipPath: "inset(6% 4% 6% 4% round 4px)" },
             {
               y: 0,
               opacity: 1,
-              duration: 0.85,
+              clipPath: "inset(0% 0% 0% 0% round 4px)",
+              duration: 0.95,
               delay: i * 0.1,
               ease: "power3.out",
               scrollTrigger: {
@@ -217,16 +229,18 @@ export default function CoreCapabilities() {
               }
             );
 
-            gsap.to(imageWrap, {
-              y: -24,
-              ease: "none",
-              scrollTrigger: {
-                trigger: card,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1.5,
-              },
-            });
+            if (!window.matchMedia("(max-width: 1023px)").matches) {
+              gsap.to(imageWrap, {
+                y: -24,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1.5,
+                },
+              });
+            }
           }
         });
       }, sectionRef);
@@ -308,14 +322,31 @@ export default function CoreCapabilities() {
         </div>
 
         <div
-          className="core-capabilities__cards"
+          className="core-capabilities__cards relative"
           onMouseLeave={() => isDesktop && setHoverIndex(null)}
         >
+          <div className="cinema-section-timeline" aria-hidden="true">
+            <div className="cinema-section-timeline__track" />
+            <div className="cinema-section-timeline__dots">
+              {coreServices.map((service, i) => (
+                <div
+                  key={service.id}
+                  className={cn(
+                    "cinema-section-timeline__dot",
+                    visibleCards[i] && "is-revealed",
+                    scrollActiveIndex === i && "is-active"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+
           {coreServices.map((service, i) => (
             <CapabilityCard
               key={service.id}
               service={service}
               total={coreServices.length}
+              index={i}
               imagePosition={i % 2 === 0 ? "left" : "right"}
               isHovered={hoverIndex === i}
               isDimmed={
@@ -329,6 +360,7 @@ export default function CoreCapabilities() {
               onHover={() => handleHover(i)}
               onHoverEnd={handleHoverEnd}
               onOpen={() => openService(i)}
+              enableTilt={isDesktop}
               imageRef={setImageRef(i)}
               cardRef={setCardRef(i)}
             />

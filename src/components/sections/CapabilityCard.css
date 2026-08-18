@@ -1,4 +1,5 @@
 /* ─── Capability Card — Soft cinematic dossier ─── */
+@import "./cinematic-card-effects.css";
 
 .cap-card {
   position: relative;
@@ -445,7 +446,7 @@
 .cap-card.is-active .cap-card__story-hook {
   opacity: 1;
   color: rgba(245, 243, 236, 0.72);
-  max-height: 5rem;
+  max-height: 8rem;
 }
 
 /* Features — always visible, soften on hover */
@@ -561,5 +562,41 @@
   .cap-card__story-hook {
     opacity: 0.85;
     max-height: none;
+  }
+}
+
+/* Mobile — stacked cards without breaking desktop layout */
+@media (max-width: 1023px) {
+  .cap-card--horizontal .cap-card__inner {
+    min-height: auto;
+  }
+
+  .cap-card--horizontal .cap-card__media {
+    position: relative;
+    flex: none;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    max-height: min(42vh, 220px);
+  }
+
+  .cap-card--hero .cap-card__media {
+    aspect-ratio: 16 / 9;
+    max-height: min(46vh, 240px);
+  }
+
+  .cap-card__content {
+    flex: none;
+    min-height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .cap-card__content-inner {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
   }
 }

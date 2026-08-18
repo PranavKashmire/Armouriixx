@@ -61,6 +61,12 @@
   }
 }
 
+@media (min-width: 1280px) {
+  .core-capabilities__cards {
+    padding-left: 2rem;
+  }
+}
+
 .core-capabilities__accent-line {
   position: absolute;
   top: 0;

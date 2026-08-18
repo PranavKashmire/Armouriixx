@@ -7,10 +7,15 @@
   flex-wrap: wrap;
   outline: none;
   user-select: none;
+  overflow: visible;
+  /* Space for corner brackets that sit outside each focused word */
+  padding: 20px;
+  margin: -20px;
 }
 
 .focus-word {
   position: relative;
+  z-index: 1;
   font-size: clamp(2.25rem, 7vw, 7.5rem);
   font-weight: 900;
   line-height: 0.92;
@@ -32,6 +37,47 @@
   }
 }
 
+@media (max-width: 639px) {
+  .focus-container {
+    justify-content: center;
+    padding: 8px 6px;
+    margin: -8px -6px;
+    gap: 0.3em;
+  }
+
+  .focus-word {
+    text-align: center;
+    font-size: clamp(1.65rem, 8.2vw, 2.25rem);
+    line-height: 1;
+  }
+
+  .hero-true-focus .corner {
+    width: 10px;
+    height: 10px;
+    border-width: 2px;
+  }
+
+  .hero-true-focus .top-left {
+    top: -10px;
+    left: -10px;
+  }
+
+  .hero-true-focus .top-right {
+    top: -10px;
+    right: -10px;
+  }
+
+  .hero-true-focus .bottom-left {
+    bottom: -10px;
+    left: -10px;
+  }
+
+  .hero-true-focus .bottom-right {
+    bottom: -10px;
+    right: -10px;
+  }
+}
+
 .focus-word.active {
   filter: blur(0);
 }
@@ -41,45 +87,48 @@
   top: 0;
   left: 0;
   pointer-events: none;
-  box-sizing: content-box;
+  box-sizing: border-box;
   border: none;
+  overflow: visible;
+  z-index: 0;
+  will-change: transform, width, height;
 }
 
-/* Corner brackets — scaled up for a hero-sized display */
+/* Corner brackets — anchored outside the word box, opening inward */
 .corner {
   position: absolute;
-  width: 1.4rem;
-  height: 1.4rem;
-  border: 3px solid var(--border-color, #C9A227);
-  filter: drop-shadow(0px 0px 6px var(--glow-color, rgba(201,162,39,0.8)));
-  border-radius: 3px;
-  transition: none;
+  width: var(--corner-size, 14px);
+  height: var(--corner-size, 14px);
+  border: 2px solid var(--border-color, #C9A227);
+  filter: drop-shadow(0px 0px 5px var(--glow-color, rgba(201, 162, 39, 0.8)));
+  border-radius: 2px;
+  box-sizing: border-box;
 }
 
 .top-left {
-  top: -12px;
-  left: -12px;
+  top: calc(-1 * var(--corner-offset, 14px));
+  left: calc(-1 * var(--corner-offset, 14px));
   border-right: none;
   border-bottom: none;
 }
 
 .top-right {
-  top: -12px;
-  right: -12px;
+  top: calc(-1 * var(--corner-offset, 14px));
+  right: calc(-1 * var(--corner-offset, 14px));
   border-left: none;
   border-bottom: none;
 }
 
 .bottom-left {
-  bottom: -12px;
-  left: -12px;
+  bottom: calc(-1 * var(--corner-offset, 14px));
+  left: calc(-1 * var(--corner-offset, 14px));
   border-right: none;
   border-top: none;
 }
 
 .bottom-right {
-  bottom: -12px;
-  right: -12px;
+  bottom: calc(-1 * var(--corner-offset, 14px));
+  right: calc(-1 * var(--corner-offset, 14px));
   border-left: none;
   border-top: none;
 }

@@ -9,6 +9,9 @@ import dynamic from "next/dynamic";
 const DepthCarousel = dynamic(() => import("@/components/ui/DepthCarousel"), { ssr: false });
 const LightPillar = dynamic(() => import("@/components/ui/LightPillar"), { ssr: false });
 const TrueFocus = dynamic(() => import("@/components/ui/TrueFocus"), { ssr: false });
+const HeroMobileCarousel = dynamic(() => import("@/components/sections/HeroMobileCarousel"), {
+  ssr: false,
+});
 
 const floatingChips = [
   { icon: <Crosshair className="w-4 h-4 shrink-0" />, label: "24/7 Rapid Response" },
@@ -47,19 +50,27 @@ export default function Hero() {
   const rafRef = useRef<number>(0);
   const [activeWordIndex, setActiveWordIndex] = useState(0);
   const [isTouch, setIsTouch] = useState(false);
-  const [carouselSize, setCarouselSize] = useState({ width: 260, height: 360 });
+  const [carouselSize, setCarouselSize] = useState({ width: 272, height: 368 });
 
   useEffect(() => {
     setIsTouch(window.matchMedia("(pointer: coarse)").matches);
 
+    const CARD_SCALE = 0.8; // 20% smaller than previous hero card sizes
+
     const updateCarouselSize = () => {
-      const w = window.innerWidth;
-      if (w < 640) {
-        setCarouselSize({ width: Math.min(240, w - 48), height: 320 });
-      } else if (w < 1024) {
-        setCarouselSize({ width: 260, height: 380 });
+      const vw = window.innerWidth;
+      if (vw < 640) {
+        const cardW = vw - 32;
+        const cardH = Math.round(cardW * 1.28);
+        setCarouselSize({ width: cardW, height: cardH });
+      } else if (vw < 1024) {
+        const cardW = Math.round(Math.min(400, vw - 80) * CARD_SCALE);
+        const cardH = Math.round(cardW * 1.35);
+        setCarouselSize({ width: cardW, height: cardH });
       } else {
-        setCarouselSize({ width: 300, height: 440 });
+        const cardW = Math.round(Math.min(520, Math.round(vw * 0.36)) * CARD_SCALE);
+        const cardH = Math.round(cardW * 1.32);
+        setCarouselSize({ width: cardW, height: cardH });
       }
     };
 
@@ -121,16 +132,16 @@ export default function Hero() {
     items: carouselItems,
     cardWidth: carouselSize.width,
     cardHeight: carouselSize.height,
-    radius: 16,
+    radius: 20,
     tint: "#0A0A0B",
-    depth: 200,
-    spread: 80,
-    tilt: 18,
+    depth: Math.round(carouselSize.width * 0.55),
+    spread: Math.round(carouselSize.width * 0.18),
+    tilt: 20,
     tiltDirection: "right" as const,
-    perspective: 1400,
-    visibleCards: 3,
-    falloff: 0.18,
-    blur: 5,
+    perspective: 1600,
+    visibleCards: carouselSize.width >= 320 ? 3 : 2,
+    falloff: 0.16,
+    blur: 4,
     duration: 1200,
     ease: "power3.inOut",
     autoplay: false,
@@ -195,18 +206,25 @@ export default function Hero() {
 
       <div className="relative z-10 w-full flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-12 sm:pb-16 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start">
-            <div className="flex flex-col justify-center min-w-0">
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 mb-5 sm:mb-6">
-                <div className="hidden sm:block h-px w-6 sm:w-8 bg-[var(--gold)] shrink-0" />
-                <span className="text-[var(--gold)] text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.4em] uppercase font-semibold font-[var(--font-body)] text-center sm:text-left leading-snug">
-                  Private Security &amp; Protection Agency
-                </span>
-                <div className="hidden sm:block h-px w-6 sm:w-8 bg-[var(--gold)] shrink-0" />
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-x-8 lg:gap-x-10 xl:gap-x-12 gap-y-2 sm:gap-y-6 lg:gap-y-8 items-start">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 lg:col-start-1 lg:row-start-1">
+              <div className="hidden sm:block h-px w-6 sm:w-8 bg-[var(--gold)] shrink-0" />
+              <span className="text-[var(--gold)] text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.4em] uppercase font-semibold font-[var(--font-body)] text-center sm:text-left leading-snug">
+                Private Security &amp; Protection Agency
+              </span>
+              <div className="hidden sm:block h-px w-6 sm:w-8 bg-[var(--gold)] shrink-0" />
+            </div>
 
+            <div
+              className="hidden lg:flex lg:col-start-2 lg:row-start-1 lg:row-span-3 self-start justify-center w-full"
+              style={{ height: carouselSize.height }}
+            >
+              <DepthCarousel {...carouselProps} verticalAlign="top" />
+            </div>
+
+            <div className="lg:col-start-1 lg:row-start-2 min-w-0">
               <h1 className="sr-only">Elite Protection. Unmatched Presence.</h1>
-              <div className="mb-6 sm:mb-10 -ml-0 sm:-ml-2 overflow-hidden" aria-hidden="true">
+              <div className="overflow-visible flex justify-center sm:justify-start sm:-ml-2 -mb-1" aria-hidden="true">
                 <TrueFocus
                   sentence="Elite Protection Unmatched Presence"
                   manualMode={false}
@@ -216,20 +234,22 @@ export default function Hero() {
                   animationDuration={1.4}
                   pauseBetweenAnimations={1.2}
                   onWordChange={setActiveWordIndex}
+                  className="hero-true-focus max-sm:justify-center"
                 />
               </div>
 
-              {/* Mobile / tablet carousel */}
-              <div className="lg:hidden flex justify-center mb-8 w-full overflow-hidden">
-                <div
-                  className="relative w-full max-w-[320px]"
-                  style={{ height: carouselSize.height + 24 }}
-                >
-                  <DepthCarousel {...carouselProps} />
-                </div>
+              {/* Mobile / tablet — plain image carousel (no 3D; reliable on all browsers) */}
+              <div className="lg:hidden w-full mt-1 sm:mt-4">
+                <HeroMobileCarousel
+                  items={carouselItems}
+                  activeIndex={activeWordIndex}
+                  onSelect={setActiveWordIndex}
+                />
               </div>
+            </div>
 
-              <p className="text-[var(--cream-muted)] text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 max-w-xl font-[var(--font-body)]">
+            <div className="lg:col-start-1 lg:row-start-3 flex flex-col min-w-0">
+              <p className="text-[var(--cream-muted)] text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 max-w-xl font-[var(--font-body)] mt-4 sm:mt-0 lg:mt-2">
                 World-class security solutions for individuals, enterprises, and high-profile
                 clients — built on Discipline, Precision, and Protection.
               </p>
@@ -245,15 +265,6 @@ export default function Hero() {
                   Our Services
                   <span className="text-[var(--gold)]">→</span>
                 </Link>
-              </div>
-            </div>
-
-            <div
-              className="hidden lg:flex items-start justify-center"
-              style={{ height: "min(70vh, 620px)", minHeight: 440, paddingTop: "58px" }}
-            >
-              <div className="relative w-full h-full">
-                <DepthCarousel {...carouselProps} cardWidth={300} cardHeight={440} visibleCards={4} depth={240} spread={100} tilt={22} blur={6} />
               </div>
             </div>
           </div>

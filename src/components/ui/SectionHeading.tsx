@@ -18,7 +18,7 @@ const eyebrowIndexMap: Record<string, string> = {
   "What We Do":             "02",
   "Operations in the Field":"03",
   "Technology Edge":        "04",
-  "Client Stories":         "05",
+  "How We Work":            "06",
 };
 
 export default function SectionHeading({

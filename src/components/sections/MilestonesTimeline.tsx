@@ -146,6 +146,7 @@ export default function MilestonesTimeline() {
   const [active, setActive] = useState(0);
   const [isUserControlled, setIsUserControlled] = useState(false);
   const [galleryHeight, setGalleryHeight] = useState(420);
+  const [galleryTrigger, setGalleryTrigger] = useState<"hover" | "click">("hover");
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
   const AUTO_MS = 5500;
@@ -153,12 +154,18 @@ export default function MilestonesTimeline() {
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
-      setGalleryHeight(w < 640 ? 260 : w < 768 ? 320 : w < 1024 ? 360 : 420);
+      const isMobile = w < 768;
+      setGalleryHeight(
+        isMobile ? (w < 640 ? 320 : 380) : w < 1024 ? 360 : 420
+      );
+      setGalleryTrigger(isMobile ? "click" : "hover");
     };
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
+
+  const isClickMode = galleryTrigger === "click";
 
   // Two-way change handler — shared by accordion clicks, list buttons, arrows
   const handleChange = useCallback((i: number) => {
@@ -212,6 +219,7 @@ export default function MilestonesTimeline() {
           <p className="mt-4 text-[var(--cream-muted)] max-w-lg font-[var(--font-body)] text-base leading-relaxed">
             Every chapter of ARMOURIXX&apos;s story is built on relentless execution, uncompromising
             standards, and a clear vision of where we are headed next.
+            {isClickMode ? " Tap a milestone to explore each chapter." : " Hover to explore each chapter."}
           </p>
         </motion.div>
 
@@ -238,7 +246,8 @@ export default function MilestonesTimeline() {
             parallax={0.6}
             tilt={6}
             stagger={0.06}
-            trigger="click"
+            trigger={galleryTrigger}
+            orientation={isClickMode ? "vertical" : "horizontal"}
             showLabels
             grayscale
           />
@@ -334,8 +343,12 @@ export default function MilestonesTimeline() {
                 return (
                   <button
                     key={item.index}
+                    type="button"
                     onClick={() => handleChange(i)}
-                    className="group relative flex items-center gap-4 text-left w-full py-3 px-4 rounded-sm transition-colors duration-300 overflow-hidden"
+                    onMouseEnter={() => {
+                      if (!isClickMode) handleChange(i);
+                    }}
+                    className="group relative flex items-center gap-4 text-left w-full py-3 px-4 rounded-sm transition-colors duration-300 overflow-hidden min-h-[44px]"
                   >
                     {/* Active background fill */}
                     <motion.span

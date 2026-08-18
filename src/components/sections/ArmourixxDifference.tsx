@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { armourixxDifference } from "@/data/armourixxDifference";
 import DifferenceCard from "@/components/sections/DifferenceCard";
+import { useCardScrollSpy } from "@/hooks/useCardScrollSpy";
 import "./ArmourixxDifference.css";
 
 export default function ArmourixxDifference() {
@@ -16,11 +17,13 @@ export default function ArmourixxDifference() {
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [visibleCards, setVisibleCards] = useState<boolean[]>(
     armourixxDifference.map(() => false)
   );
   const [headingVisible, setHeadingVisible] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const scrollActiveIndex = useCardScrollSpy(cardRefs, armourixxDifference.length);
 
   const setCardRef = useCallback((index: number) => (el: HTMLElement | null) => {
     cardRefs.current[index] = el;
@@ -137,11 +140,12 @@ export default function ArmourixxDifference() {
 
           gsap.fromTo(
             card,
-            { y: 28, opacity: 0 },
+            { y: 28, opacity: 0, clipPath: "inset(6% 4% 6% 4% round 4px)" },
             {
               y: 0,
               opacity: 1,
-              duration: 0.85,
+              clipPath: "inset(0% 0% 0% 0% round 4px)",
+              duration: 0.9,
               delay: i * 0.09,
               ease: "power3.out",
               scrollTrigger: {
@@ -171,16 +175,18 @@ export default function ArmourixxDifference() {
               );
             }
 
-            gsap.to(imageWrap, {
-              y: -18,
-              ease: "none",
-              scrollTrigger: {
-                trigger: card,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1.4,
-              },
-            });
+            if (!window.matchMedia("(max-width: 1023px)").matches) {
+              gsap.to(imageWrap, {
+                y: -18,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1.4,
+                },
+              });
+            }
           }
         });
       }, sectionRef);
@@ -254,20 +260,47 @@ export default function ArmourixxDifference() {
         </div>
 
         <div
-          className="armourixx-difference__cards"
+          className="armourixx-difference__cards relative"
           onMouseLeave={() => isDesktop && setHoverIndex(null)}
         >
+          <div className="cinema-section-timeline" aria-hidden="true">
+            <div className="cinema-section-timeline__track" />
+            <div className="cinema-section-timeline__dots">
+              {armourixxDifference.map((pillar, i) => (
+                <div
+                  key={pillar.id}
+                  className={cn(
+                    "cinema-section-timeline__dot",
+                    visibleCards[i] && "is-revealed",
+                    scrollActiveIndex === i && "is-active"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+
           {armourixxDifference.map((pillar, i) => (
             <DifferenceCard
               key={pillar.id}
               pillar={pillar}
               total={armourixxDifference.length}
+              index={i}
               imagePosition={i % 2 === 0 ? "left" : "right"}
-              isHovered={hoverIndex === i}
-              isDimmed={isDesktop && hoverIndex !== null && hoverIndex !== i}
+              isHovered={isDesktop ? hoverIndex === i : activeIndex === i}
+              isDimmed={
+                isDesktop &&
+                hoverIndex !== null &&
+                hoverIndex !== i
+              }
               isVisible={visibleCards[i]}
               onHover={() => isDesktop && setHoverIndex(i)}
               onHoverEnd={() => isDesktop && setHoverIndex(null)}
+              onActivate={() => {
+                if (!isDesktop) {
+                  setActiveIndex((prev) => (prev === i ? null : i));
+                }
+              }}
+              enableTilt={isDesktop}
               cardRef={setCardRef(i)}
               imageRef={setImageRef(i)}
             />

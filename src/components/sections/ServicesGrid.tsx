@@ -8,33 +8,33 @@ import AccordionGallery from "@/components/ui/AccordionGallery";
 
 const galleryItems = [
   {
+    id: "vip-protection",
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&h=1200&fit=crop",
     label: "VIP & Executive Protection",
-    link: "/services#vip-protection",
     alt: "VIP Executive Protection",
   },
   {
+    id: "corporate-security-programs",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=1200&fit=crop",
     label: "Corporate Security",
-    link: "/services#corporate-security-programs",
     alt: "Corporate Security",
   },
   {
+    id: "event-security",
     image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&h=1200&fit=crop",
     label: "Event Security",
-    link: "/services#event-security",
     alt: "Event Security",
   },
   {
+    id: "surveillance-control-room",
     image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&h=1200&fit=crop",
     label: "Surveillance & Control Room",
-    link: "/services#surveillance-control-room",
     alt: "Surveillance Control Room",
   },
   {
+    id: "manned-guarding",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=900&h=1200&fit=crop",
     label: "Manned Guarding",
-    link: "/services#manned-guarding",
     alt: "Manned Guarding",
   },
 ];
@@ -70,17 +70,23 @@ const serviceDetails = [
 export default function ServicesGrid() {
   const [galleryHeight, setGalleryHeight] = useState(520);
   const [galleryTrigger, setGalleryTrigger] = useState<"hover" | "click">("hover");
+  const [activeService, setActiveService] = useState(0);
 
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
-      setGalleryHeight(w < 640 ? 280 : w < 768 ? 360 : w < 1024 ? 420 : 520);
-      setGalleryTrigger(w < 768 ? "click" : "hover");
+      const isMobile = w < 768;
+      setGalleryHeight(
+        isMobile ? (w < 640 ? 320 : 380) : w < 1024 ? 420 : 520
+      );
+      setGalleryTrigger(isMobile ? "click" : "hover");
     };
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
+
+  const isClickMode = galleryTrigger === "click";
 
   return (
     <section
@@ -102,7 +108,7 @@ export default function ServicesGrid() {
             title="Security"
             titleHighlight="Solutions"
             subtitle={
-              galleryTrigger === "click"
+              isClickMode
                 ? "Six core capabilities across 12 industries — tap to explore each operation."
                 : "Six core capabilities across 12 industries — hover to explore each operation."
             }
@@ -113,6 +119,8 @@ export default function ServicesGrid() {
           <AccordionGallery
             items={galleryItems}
             defaultIndex={0}
+            activeIndex={activeService}
+            onActiveChange={setActiveService}
             accentColor="#C9A227"
             overlayColor="#0A0A0B"
             textColor="#F5F3EC"
@@ -126,47 +134,69 @@ export default function ServicesGrid() {
             tilt={7}
             stagger={0.06}
             trigger={galleryTrigger}
+            orientation={isClickMode ? "vertical" : "horizontal"}
             showLabels={true}
             grayscale={true}
           />
         </BlurFadeIn>
 
         <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
-          {serviceDetails.map((s, i) => (
+          {serviceDetails.map((s, i) => {
+            const isActive = i === activeService;
+            return (
             <BlurFadeIn key={i} delay={200 + i * 60}>
-              <div className="group relative flex flex-col gap-2 px-4 sm:px-5 py-5 sm:py-6 border-t sm:border-t-0 sm:border-l border-[rgba(201,162,39,0.12)] hover:border-[rgba(201,162,39,0.4)] transition-colors duration-400 cursor-default">
+              <button
+                type="button"
+                onClick={() => setActiveService(i)}
+                onMouseEnter={() => setActiveService(i)}
+                aria-pressed={isActive}
+                aria-label={`${s.title} — ${s.tag}`}
+                className={`group relative flex flex-col gap-2 px-4 sm:px-5 py-5 sm:py-6 border-t sm:border-t-0 sm:border-l transition-colors duration-400 text-left w-full min-h-[44px] cursor-pointer ${
+                  isActive
+                    ? "border-[rgba(201,162,39,0.55)] bg-[rgba(201,162,39,0.07)]"
+                    : "border-[rgba(201,162,39,0.12)] hover:border-[rgba(201,162,39,0.4)]"
+                }`}
+              >
                 <span
-                  className="font-[var(--font-display)] text-xs"
-                  style={{ color: "rgba(201,162,39,0.4)", letterSpacing: "0.2em" }}
+                  className="font-[var(--font-display)] text-xs transition-colors duration-300"
+                  style={{ color: isActive ? "rgba(201,162,39,0.9)" : "rgba(201,162,39,0.4)", letterSpacing: "0.2em" }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span
-                  className="text-[9px] font-bold uppercase tracking-widest font-[var(--font-body)]"
-                  style={{ color: "rgba(201,162,39,0.65)" }}
+                  className="text-[9px] font-bold uppercase tracking-widest font-[var(--font-body)] transition-colors duration-300"
+                  style={{ color: isActive ? "rgba(201,162,39,0.95)" : "rgba(201,162,39,0.65)" }}
                 >
                   {s.tag}
                 </span>
                 <h3
-                  className="font-[var(--font-display)] text-base sm:text-lg tracking-wide leading-tight transition-colors duration-300 group-hover:text-[var(--gold)]"
-                  style={{ color: "var(--cream)" }}
+                  className={`font-[var(--font-display)] text-base sm:text-lg tracking-wide leading-tight transition-colors duration-300 ${
+                    isActive ? "text-[var(--gold)]" : "text-[var(--cream)] group-hover:text-[var(--gold)]"
+                  }`}
                 >
                   {s.title}
                 </h3>
                 <p
-                  className="font-[var(--font-body)] text-xs leading-relaxed text-[rgba(184,180,168,0.7)] md:max-h-0 md:overflow-hidden md:opacity-0 md:group-hover:max-h-24 md:group-hover:opacity-100 transition-all duration-400"
+                  className={`font-[var(--font-body)] text-xs leading-relaxed text-[rgba(184,180,168,0.7)] transition-all duration-400 ${
+                    isActive
+                      ? "max-h-24 opacity-100"
+                      : "md:max-h-0 md:overflow-hidden md:opacity-0 md:group-hover:max-h-24 md:group-hover:opacity-100"
+                  }`}
                 >
                   {s.desc}
                 </p>
                 <div
-                  className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-500 hidden md:block"
+                  className={`absolute bottom-0 left-0 h-px transition-all duration-500 hidden md:block ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
                   style={{
                     background: "linear-gradient(90deg, #C9A227, rgba(201,162,39,0))",
                   }}
                 />
-              </div>
+              </button>
             </BlurFadeIn>
-          ))}
+            );
+          })}
         </div>
 
         <BlurFadeIn className="mt-10 sm:mt-12 text-center" delay={600}>

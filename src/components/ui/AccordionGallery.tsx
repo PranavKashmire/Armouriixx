@@ -189,13 +189,39 @@ export default function AccordionGallery({
   useEffect(() => () => { tlRef.current?.kill(); }, []);
 
   const handleEnter = (i: number) => { if (trigger === 'hover') setActive(i); };
-  const handleClick = (i: number, e: React.MouseEvent) => {
-    if (i !== active) { e.preventDefault(); setActive(i); } else { onActiveChange?.(i); }
+  const handleActivate = (i: number, e?: React.MouseEvent | React.PointerEvent) => {
+    if (e) e.preventDefault();
+    setActive(i);
   };
   const handleKeyDown = (i: number, e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setActive(i);
+      return;
+    }
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); setActive((i + 1) % count); }
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); setActive((i - 1 + count) % count); }
   };
+
+  const renderPanelContent = (item: AccordionItem, i: number) => (
+    <>
+      <span className="ag-panel__frame">
+        <span className="ag-panel__media" ref={(el) => { mediaRefs.current[i] = el; }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={item.image} alt={item.alt || item.label || ''} draggable={false} />
+        </span>
+        <span className="ag-panel__overlay" aria-hidden="true" />
+      </span>
+      {showLabels && (
+        <span className="ag-panel__label" aria-hidden="true">
+          <span className="ag-panel__bar" ref={(el) => { barRefs.current[i] = el; }} />
+          <span className="ag-panel__text" ref={(el) => { textRefs.current[i] = el; }}>
+            {item.label}
+          </span>
+        </span>
+      )}
+    </>
+  );
 
   return (
     <div
@@ -214,39 +240,43 @@ export default function AccordionGallery({
     >
       {items.map((item, i) => {
         const isActive = i === active;
-        const Tag = item.link ? 'a' : 'div';
+        const useLink = Boolean(item.link) && trigger === 'hover';
+        const sharedProps = {
+          ref: (el: HTMLElement | null) => { panelRefs.current[i] = el; },
+          className: `ag-panel${isActive ? ' ag-panel--active' : ''}`,
+          style: { borderRadius: `${radius}px` },
+          onMouseEnter: () => handleEnter(i),
+          onFocus: () => setActive(i),
+          onKeyDown: (e: React.KeyboardEvent) => handleKeyDown(i, e),
+          role: 'listitem' as const,
+          tabIndex: 0,
+          'aria-current': isActive ? ('true' as const) : undefined,
+          'aria-label': item.label,
+          'aria-expanded': trigger === 'click' ? isActive : undefined,
+        };
+
+        if (useLink) {
+          return (
+            <a
+              key={i}
+              href={item.link}
+              {...sharedProps}
+              onClick={(e) => handleActivate(i, e)}
+            >
+              {renderPanelContent(item, i)}
+            </a>
+          );
+        }
+
         return (
-          <Tag
+          <button
             key={i}
-            ref={(el: HTMLElement | null) => { panelRefs.current[i] = el; }}
-            className={`ag-panel${isActive ? ' ag-panel--active' : ''}`}
-            style={{ borderRadius: `${radius}px` }}
-            {...(item.link ? { href: item.link } : {})}
-            onClick={(e: React.MouseEvent) => handleClick(i, e)}
-            onMouseEnter={() => handleEnter(i)}
-            onFocus={() => setActive(i)}
-            onKeyDown={(e: React.KeyboardEvent) => handleKeyDown(i, e)}
-            role="listitem"
-            tabIndex={0}
-            aria-current={isActive ? 'true' : undefined}
-            aria-label={item.label}
+            type="button"
+            {...sharedProps}
+            onClick={(e) => handleActivate(i, e)}
           >
-            <span className="ag-panel__frame">
-              <span className="ag-panel__media" ref={el => { mediaRefs.current[i] = el; }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item.image} alt={item.alt || item.label || ''} draggable={false} />
-              </span>
-              <span className="ag-panel__overlay" aria-hidden="true" />
-            </span>
-            {showLabels && (
-              <span className="ag-panel__label" aria-hidden="true">
-                <span className="ag-panel__bar" ref={el => { barRefs.current[i] = el; }} />
-                <span className="ag-panel__text" ref={el => { textRefs.current[i] = el; }}>
-                  {item.label}
-                </span>
-              </span>
-            )}
-          </Tag>
+            {renderPanelContent(item, i)}
+          </button>
         );
       })}
     </div>

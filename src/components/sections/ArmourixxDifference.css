@@ -71,6 +71,12 @@
   }
 }
 
+@media (min-width: 1280px) {
+  .armourixx-difference__cards {
+    padding-left: 2rem;
+  }
+}
+
 .armourixx-difference__accent-line {
   position: absolute;
   top: 0;

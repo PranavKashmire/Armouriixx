@@ -1,4 +1,5 @@
 /* ─── ARMOURIXX Difference Card ─── */
+@import "./cinematic-card-effects.css";
 
 .diff-card {
   position: relative;
@@ -369,14 +370,17 @@
   margin: 0 0 0.85rem;
   font-style: italic;
   opacity: 0.65;
+  max-height: 3.5rem;
   transition:
     opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0.8s ease;
+    color 0.8s ease,
+    max-height 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .diff-card.is-active .diff-card__story {
   opacity: 1;
   color: rgba(245, 243, 236, 0.68);
+  max-height: 8rem;
 }
 
 .diff-card__cta {
@@ -428,5 +432,46 @@
 
   .diff-card__story {
     opacity: 0.85;
+  }
+}
+
+/* Mobile — stacked cards without breaking desktop layout */
+@media (max-width: 1023px) {
+  .diff-card--horizontal .diff-card__inner {
+    min-height: auto;
+  }
+
+  .diff-card--horizontal .diff-card__media {
+    position: relative;
+    flex: none;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    max-height: min(42vh, 220px);
+  }
+
+  .diff-card--hero .diff-card__media {
+    aspect-ratio: 16 / 9;
+    max-height: min(46vh, 240px);
+  }
+
+  .diff-card__content {
+    flex: none;
+    min-height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .diff-card__content-inner {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .diff-card__hero-label {
+    top: 0.75rem;
+    left: 0.75rem;
   }
 }
