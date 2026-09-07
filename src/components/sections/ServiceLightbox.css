@@ -159,8 +159,8 @@
 }
 
 .cap-lightbox__nav:hover {
-  background: rgba(201, 162, 39, 0.15);
-  border-color: rgba(201, 162, 39, 0.4);
+  background: rgba(156, 168, 180, 0.15);
+  border-color: rgba(220, 43, 27, 0.4);
   color: var(--gold-light);
   transform: scale(1.05);
 }
@@ -208,7 +208,7 @@
   font-size: 9px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(201, 162, 39, 0.55);
+  color: rgba(220, 43, 27, 0.55);
 }
 
 .cap-lightbox__meta-dot {

@@ -28,7 +28,7 @@ export default function ShimmerButton({
 
   const base = cn(
     "relative inline-flex items-center justify-center gap-2 font-bold tracking-widest uppercase overflow-hidden rounded-sm",
-    "shimmer-btn text-[var(--ink)]",
+    "shimmer-btn text-white",
     "transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]",
     "focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]",
     sizeClasses[size],

@@ -46,7 +46,7 @@
 .diff-card.is-active .diff-card__inner {
   box-shadow:
     0 24px 64px -28px rgba(0, 0, 0, 0.75),
-    0 0 0 1px rgba(201, 162, 39, 0.16);
+    0 0 0 1px rgba(156, 168, 180, 0.16);
   transform: translateY(-3px);
 }
 
@@ -126,7 +126,7 @@
 .diff-card__frame {
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(201, 162, 39, 0.1);
+  border: 1px solid rgba(156, 168, 180, 0.12);
   border-radius: 4px;
   pointer-events: none;
   z-index: 5;
@@ -134,7 +134,7 @@
 }
 
 .diff-card.is-active .diff-card__frame {
-  border-color: rgba(201, 162, 39, 0.32);
+  border-color: rgba(220, 43, 27, 0.32);
 }
 
 .diff-card__corner {
@@ -244,14 +244,14 @@
   padding: 1.15rem 1.25rem;
   border-radius: 3px;
   background: linear-gradient(165deg, rgba(10, 10, 11, 0.52) 0%, rgba(10, 10, 11, 0.9) 100%);
-  border: 1px solid rgba(201, 162, 39, 0.08);
+  border: 1px solid rgba(156, 168, 180, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: border-color 0.8s ease, background 0.8s ease;
 }
 
 .diff-card.is-active .diff-card__content-inner {
-  border-color: rgba(201, 162, 39, 0.18);
+  border-color: rgba(156, 168, 180, 0.18);
 }
 
 .diff-card__chapter {
@@ -260,13 +260,13 @@
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(201, 162, 39, 0.5);
+  color: rgba(220, 43, 27, 0.5);
   margin-bottom: 0.75rem;
   transition: color 0.8s ease;
 }
 
 .diff-card.is-active .diff-card__chapter {
-  color: rgba(201, 162, 39, 0.8);
+  color: rgba(220, 43, 27, 0.8);
 }
 
 .diff-card__meta {
@@ -280,7 +280,7 @@
   font-size: 8px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(201, 162, 39, 0.45);
+  color: rgba(220, 43, 27, 0.45);
 }
 
 .diff-card__proof {
@@ -297,7 +297,7 @@
   font-size: clamp(1.05rem, 2.5vw, 1.4rem);
   letter-spacing: 0.05em;
   line-height: 1.15;
-  color: rgba(232, 196, 104, 0.72);
+  color: rgba(240, 74, 60, 0.72);
   margin: 0 0 0.65rem;
   transition: color 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -314,14 +314,14 @@
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 2rem);
   line-height: 1;
-  color: rgba(201, 162, 39, 0.1);
+  color: rgba(156, 168, 180, 0.12);
   letter-spacing: 0.05em;
   margin-bottom: 0.35rem;
   transition: color 0.8s ease;
 }
 
 .diff-card.is-active .diff-card__number {
-  color: rgba(201, 162, 39, 0.26);
+  color: rgba(220, 43, 27, 0.26);
 }
 
 .diff-card__number span {
@@ -389,13 +389,13 @@
   gap: 0.45rem;
   margin-top: 0.25rem;
   padding-top: 0.75rem;
-  border-top: 1px solid rgba(201, 162, 39, 0.08);
+  border-top: 1px solid rgba(156, 168, 180, 0.1);
   font-family: var(--font-body);
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(201, 162, 39, 0.4);
+  color: rgba(220, 43, 27, 0.4);
   transition: color 0.8s ease, gap 0.8s ease;
 }
 

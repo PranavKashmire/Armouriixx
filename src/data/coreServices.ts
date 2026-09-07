@@ -71,19 +71,19 @@ export const coreServices: CoreService[] = [
     opsCode: "OPS-MG-02",
     coordinates: "18.5204° N",
     title: "Manned Guarding",
-    desc: "Trained security guards stationed at your premises 24/7 with body-worn cameras and GPS check-ins.",
+    desc: "Trained security guards stationed at your premises 24/7 — equipped with body-worn cameras, high-tech field kit, and GPS-verified checkpoint patrols across your site.",
     fullDesc:
-      "Manned Guarding forms the backbone of physical security for corporate campuses, residential towers, industrial facilities, and retail environments. Our guards are selected, trained, and deployed with clear post orders, access-control protocols, and real-time accountability through body-worn cameras and GPS-verified patrol check-ins. Supervisors conduct regular audits to ensure standards remain consistent across every shift — day, night, and weekend coverage.",
+      "Manned Guarding forms the backbone of physical security for corporate campuses, residential towers, industrial facilities, and retail environments. Our guards are selected, rigorously trained, and deployed with clear post orders and access-control protocols. Every operative is issued high-tech field equipment — including body-worn cameras for constant surveillance — while GPS checkpoints mapped across your site verify patrol movements in real time. Supervisors and command oversight audit every shift so accountability is never assumed.",
     tagline: "The perimeter never sleeps.",
     storyHook:
-      "Body-worn cameras, GPS patrols, and supervisors who audit every shift — not just the first one.",
+      "Body-cams recording. Checkpoints scanning. GPS tracking every patrol — supervisors audit every shift, not just the first one.",
     storyChapter: "Chapter II — The Perimeter",
     statusLabel: "GUARD FORCE DEPLOYED",
     features: [
       "24/7 on-site coverage & shift rotation",
-      "Body-worn cameras on every guard",
-      "Access control & visitor management",
-      "Patrol routes with GPS verification",
+      "Body-worn cameras on every guard — full-shift recording",
+      "GPS checkpoint network across site perimeters & patrol routes",
+      "High-tech comms, digital reporting & supervisor audits",
     ],
     images: [
       {

@@ -12,8 +12,8 @@
   pointer-events: none;
   opacity: 0.3;
   background-image:
-    linear-gradient(rgba(201, 162, 39, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 162, 39, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(156, 168, 180, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(156, 168, 180, 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 75% 55% at 50% 35%, black 15%, transparent 72%);
 }
@@ -33,7 +33,7 @@
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(201, 162, 39, 0.45);
+  color: rgba(220, 43, 27, 0.45);
   font-variant-numeric: tabular-nums;
 }
 

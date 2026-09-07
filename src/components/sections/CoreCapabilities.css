@@ -12,8 +12,8 @@
   pointer-events: none;
   opacity: 0.35;
   background-image:
-    linear-gradient(rgba(201, 162, 39, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 162, 39, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(156, 168, 180, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(156, 168, 180, 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 75%);
 }
@@ -33,7 +33,7 @@
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(201, 162, 39, 0.5);
+  color: rgba(220, 43, 27, 0.5);
   font-variant-numeric: tabular-nums;
 }
 
@@ -76,6 +76,11 @@
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   opacity: 0.6;
   z-index: 2;
+}
+
+/* Tighter handoff into Nightclub Bouncers (same page, same tone) */
+.core-capabilities.section-pad {
+  padding-bottom: clamp(1.25rem, 3vw, 2.5rem);
 }
 
 @media (prefers-reduced-motion: reduce) {

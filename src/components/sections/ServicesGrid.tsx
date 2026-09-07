@@ -91,13 +91,13 @@ export default function ServicesGrid() {
   return (
     <section
       className="relative overflow-hidden py-[clamp(3rem,8vw,8rem)]"
-      style={{ background: "linear-gradient(180deg, #0A0A0B 0%, #0e0e10 100%)" }}
+      style={{ background: "linear-gradient(180deg, var(--ink) 0%, var(--slate) 100%)" }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 50% 30%, rgba(201,162,39,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 50% 30%, rgba(220, 43, 27,0.04) 0%, transparent 70%)",
         }}
       />
 
@@ -121,8 +121,8 @@ export default function ServicesGrid() {
             defaultIndex={0}
             activeIndex={activeService}
             onActiveChange={setActiveService}
-            accentColor="#C9A227"
-            overlayColor="#0A0A0B"
+            accentColor="#DC2B1B"
+            overlayColor="#000000"
             textColor="#F5F3EC"
             height={galleryHeight}
             gap={6}
@@ -153,19 +153,19 @@ export default function ServicesGrid() {
                 aria-label={`${s.title} — ${s.tag}`}
                 className={`group relative flex flex-col gap-2 px-4 sm:px-5 py-5 sm:py-6 border-t sm:border-t-0 sm:border-l transition-colors duration-400 text-left w-full min-h-[44px] cursor-pointer ${
                   isActive
-                    ? "border-[rgba(201,162,39,0.55)] bg-[rgba(201,162,39,0.07)]"
-                    : "border-[rgba(201,162,39,0.12)] hover:border-[rgba(201,162,39,0.4)]"
+                    ? "border-[rgba(220, 43, 27,0.55)] bg-[rgba(220, 43, 27,0.07)]"
+                    : "border-[rgba(220, 43, 27,0.12)] hover:border-[rgba(220, 43, 27,0.4)]"
                 }`}
               >
                 <span
                   className="font-[var(--font-display)] text-xs transition-colors duration-300"
-                  style={{ color: isActive ? "rgba(201,162,39,0.9)" : "rgba(201,162,39,0.4)", letterSpacing: "0.2em" }}
+                  style={{ color: isActive ? "rgba(220, 43, 27,0.9)" : "rgba(220, 43, 27,0.4)", letterSpacing: "0.2em" }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span
                   className="text-[9px] font-bold uppercase tracking-widest font-[var(--font-body)] transition-colors duration-300"
-                  style={{ color: isActive ? "rgba(201,162,39,0.95)" : "rgba(201,162,39,0.65)" }}
+                  style={{ color: isActive ? "rgba(220, 43, 27,0.95)" : "rgba(220, 43, 27,0.65)" }}
                 >
                   {s.tag}
                 </span>
@@ -190,7 +190,7 @@ export default function ServicesGrid() {
                     isActive ? "w-full" : "w-0 group-hover:w-full"
                   }`}
                   style={{
-                    background: "linear-gradient(90deg, #C9A227, rgba(201,162,39,0))",
+                    background: "linear-gradient(90deg, #DC2B1B, rgba(220, 43, 27,0))",
                   }}
                 />
               </button>

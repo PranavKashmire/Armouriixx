@@ -39,7 +39,7 @@ const usps = [
   {
     icon: Satellite,
     title: "GPS Patrol Monitoring",
-    desc: "Real-time location tracking of all deployed units — patrol routes verified, never assumed.",
+    desc: "GPS checkpoints across your site verify every patrol scan — guard movements tracked in real time, never assumed.",
   },
   {
     icon: FileText,

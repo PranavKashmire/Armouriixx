@@ -109,7 +109,7 @@ export default function Testimonials() {
           className="absolute top-[10%] bottom-[10%] right-0 w-px pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, transparent 0%, rgba(201,162,39,0.45) 25%, rgba(201,162,39,0.55) 50%, rgba(201,162,39,0.45) 75%, transparent 100%)",
+              "linear-gradient(180deg, transparent 0%, rgba(220, 43, 27,0.45) 25%, rgba(220, 43, 27,0.55) 50%, rgba(220, 43, 27,0.45) 75%, transparent 100%)",
           }}
         />
       </div>

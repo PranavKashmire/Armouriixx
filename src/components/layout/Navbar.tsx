@@ -3,8 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Shield } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { megaMenuServices } from "@/data/navServices";
+import ServiceIconBox from "@/components/ui/ServiceIconBox";
+import LogoLink, { Logo } from "@/components/ui/Logo";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -12,15 +15,6 @@ const navLinks = [
   { label: "Services", href: "/services", hasMega: true },
   { label: "Why Us", href: "/why-us" },
   { label: "Contact", href: "/contact" },
-];
-
-const megaMenuServices = [
-  { icon: "👔", label: "VIP & Executive Protection", href: "/services#vip-protection" },
-  { icon: "🏢", label: "Manned Guarding", href: "/services#manned-guarding" },
-  { icon: "🎪", label: "Event Security", href: "/services#event-security" },
-  { icon: "📹", label: "Surveillance & Control Room", href: "/services#surveillance-control-room" },
-  { icon: "🚨", label: "Rapid Response", href: "/services#rapid-response" },
-  { icon: "🌐", label: "Corporate Security Programs", href: "/services#corporate-security-programs" },
 ];
 
 export default function Navbar() {
@@ -88,34 +82,13 @@ export default function Navbar() {
         )}
       >
         <div
-          className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[var(--gold-dark)] via-[var(--gold-light)] to-[var(--gold-dark)] transition-all duration-150"
+          className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[var(--steel-dark)] via-[var(--gold)] to-[var(--steel-dark)] transition-all duration-150"
           style={{ width: `${scrollProgress}%` }}
           aria-hidden="true"
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-3">
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0">
-            <div className="relative shrink-0">
-              <Shield
-                className="w-7 h-7 sm:w-8 sm:h-8 text-[var(--gold)] transition-transform duration-300 group-hover:scale-110"
-                fill="currentColor"
-                strokeWidth={0.5}
-                stroke="var(--gold-dark)"
-              />
-              <span className="absolute inset-0 flex items-center justify-center text-[8px] sm:text-[9px] font-bold text-[var(--ink)] tracking-tight">
-                AXS
-              </span>
-            </div>
-            <div className="flex flex-col leading-none min-w-0">
-              <span className="font-[var(--font-display)] text-base sm:text-xl tracking-widest text-[var(--cream)] truncate">
-                ARMOURI
-                <span className="text-gradient-gold">XX</span>
-              </span>
-              <span className="text-[7px] sm:text-[8px] tracking-[0.3em] sm:tracking-[0.35em] text-[var(--gold)] font-semibold uppercase mt-0.5">
-                Security
-              </span>
-            </div>
-          </Link>
+          <LogoLink size="nav" priority />
 
           <nav
             ref={navRef}
@@ -175,7 +148,7 @@ export default function Navbar() {
                           href={svc.href}
                           className="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--gold)]/10 transition-colors duration-200 group"
                         >
-                          <span className="text-lg shrink-0">{svc.icon}</span>
+                          <ServiceIconBox icon={svc.icon} className="w-9 h-9" />
                           <span className="text-sm text-[var(--cream-muted)] group-hover:text-[var(--cream)] transition-colors">
                             {svc.label}
                           </span>
@@ -199,7 +172,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <Link
               href="/contact"
-              className="hidden lg:inline-flex items-center gap-2 px-4 xl:px-5 py-2.5 border border-[var(--gold)] text-[var(--gold)] text-xs xl:text-sm font-bold tracking-widest uppercase rounded-sm hover:bg-[var(--gold)] hover:text-[var(--ink)] transition-all duration-300"
+              className="hidden lg:inline-flex items-center gap-2 px-4 xl:px-5 py-2.5 border border-[var(--gold)] text-[var(--gold)] text-xs xl:text-sm font-bold tracking-widest uppercase rounded-sm hover:bg-[var(--gold)] hover:text-white transition-all duration-300"
             >
               Get Protected
             </Link>
@@ -226,8 +199,8 @@ export default function Navbar() {
         )}
         style={{ background: "rgba(10,10,11,0.97)", backdropFilter: "blur(20px)" }}
       >
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-          <Shield className="w-64 sm:w-96 h-64 sm:h-96 opacity-[0.03] text-[var(--gold)]" fill="currentColor" />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden opacity-[0.06]">
+          <Logo size="xl" className="!h-48 sm:!h-64" />
         </div>
 
         <div className="relative z-10 h-full flex flex-col pt-24 pb-8 px-6 overflow-y-auto">
@@ -261,10 +234,10 @@ export default function Navbar() {
                           <Link
                             key={svc.href}
                             href={svc.href}
-                            className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm text-[var(--cream-muted)] hover:text-[var(--cream)] hover:bg-[var(--gold)]/10 transition-colors"
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm text-[var(--cream-muted)] hover:text-[var(--cream)] hover:bg-[var(--gold)]/10 transition-colors group"
                             onClick={() => setMobileOpen(false)}
                           >
-                            <span>{svc.icon}</span>
+                            <ServiceIconBox icon={svc.icon} className="w-8 h-8" iconClassName="w-3.5 h-3.5" />
                             <span className="text-left">{svc.label}</span>
                           </Link>
                         ))}
@@ -307,7 +280,7 @@ export default function Navbar() {
           >
             <Link
               href="/contact"
-              className="w-full max-w-sm text-center px-8 py-3.5 border border-[var(--gold)] text-[var(--gold)] font-bold tracking-widest uppercase text-sm hover:bg-[var(--gold)] hover:text-[var(--ink)] transition-all duration-300 rounded-sm"
+              className="w-full max-w-sm text-center px-8 py-3.5 border border-[var(--gold)] text-[var(--gold)] font-bold tracking-widest uppercase text-sm hover:bg-[var(--gold)] hover:text-white transition-all duration-300 rounded-sm"
               onClick={() => setMobileOpen(false)}
             >
               Get Protected

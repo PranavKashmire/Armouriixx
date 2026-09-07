@@ -117,7 +117,7 @@ function StepNav({
               height: 8,
               opacity: i === active ? 1 : 0.3,
               boxShadow: i === active
-                ? "0 0 10px rgba(201,162,39,0.7)"
+                ? "0 0 10px rgba(220, 43, 27,0.7)"
                 : "none",
             }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -234,8 +234,8 @@ export default function MilestonesTimeline() {
             items={accordionItems}
             activeIndex={active}
             onActiveChange={handleChange}
-            accentColor="#C9A227"
-            overlayColor="#0A0A0B"
+            accentColor="#DC2B1B"
+            overlayColor="#000000"
             textColor="#F5F3EC"
             height={galleryHeight}
             gap={8}
@@ -362,8 +362,8 @@ export default function MilestonesTimeline() {
                     <motion.span
                       className="relative flex-shrink-0 w-2 h-2 rounded-full"
                       animate={{
-                        backgroundColor: isActive ? "#C9A227" : "rgba(255,255,255,0.2)",
-                        boxShadow: isActive ? "0 0 8px rgba(201,162,39,0.9)" : "none",
+                        backgroundColor: isActive ? "#DC2B1B" : "rgba(255,255,255,0.2)",
+                        boxShadow: isActive ? "0 0 8px rgba(220, 43, 27,0.9)" : "none",
                       }}
                       transition={{ duration: 0.3 }}
                     />
@@ -372,7 +372,7 @@ export default function MilestonesTimeline() {
                     <span className="relative flex-1 min-w-0">
                       <motion.span
                         className="block text-[0.6rem] tracking-[0.3em] uppercase font-semibold mb-0.5"
-                        animate={{ color: isActive ? "#C9A227" : "#B8B4A8" }}
+                        animate={{ color: isActive ? "#DC2B1B" : "#B8B4A8" }}
                         transition={{ duration: 0.3 }}
                       >
                         {item.year} · {item.tag}

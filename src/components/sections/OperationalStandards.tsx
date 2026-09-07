@@ -11,6 +11,7 @@ import {
   Clock,
   UserCheck,
   MapPin,
+  MapPinned,
   Lock,
   Radio,
 } from "lucide-react";
@@ -24,9 +25,15 @@ const standards = [
   },
   {
     title: "Body-Cam Equipped",
-    subtitle: "Full Shift Video Recording",
+    subtitle: "Constant Shift Surveillance",
     icon: <Video className="w-5 h-5 text-[var(--gold)]" />,
     tag: "1080P HD",
+  },
+  {
+    title: "GPS Checkpoint Network",
+    subtitle: "Site-Wide Patrol Verification",
+    icon: <MapPinned className="w-5 h-5 text-[var(--gold)]" />,
+    tag: "LIVE TRACKING",
   },
   {
     title: "AI Threat Analytics",
@@ -125,7 +132,7 @@ export default function OperationalStandards() {
     return (
       <section
         className="relative py-14 overflow-hidden"
-        style={{ background: "linear-gradient(180deg, #0A0A0B 0%, #121214 100%)" }}
+        style={{ background: "linear-gradient(180deg, var(--ink) 0%, var(--slate-2) 100%)" }}
       >
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/30 to-transparent" />
         <div className="text-center mb-8 relative z-10 px-6">
@@ -148,7 +155,7 @@ export default function OperationalStandards() {
   return (
     <section
       className="relative py-14 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0A0A0B 0%, #121214 100%)" }}
+      style={{ background: "linear-gradient(180deg, var(--ink) 0%, var(--slate-2) 100%)" }}
     >
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/30 to-transparent" />
       <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/30 to-transparent" />
@@ -164,11 +171,11 @@ export default function OperationalStandards() {
 
       <div
         className="absolute inset-y-0 left-0 w-24 md:w-40 z-20 pointer-events-none"
-        style={{ background: "linear-gradient(90deg, #0A0A0B 0%, transparent 100%)" }}
+        style={{ background: "linear-gradient(90deg, #000000 0%, transparent 100%)" }}
       />
       <div
         className="absolute inset-y-0 right-0 w-24 md:w-40 z-20 pointer-events-none"
-        style={{ background: "linear-gradient(270deg, #0A0A0B 0%, transparent 100%)" }}
+        style={{ background: "linear-gradient(270deg, #000000 0%, transparent 100%)" }}
       />
 
       {/* Continuous left → right auto-scroll */}

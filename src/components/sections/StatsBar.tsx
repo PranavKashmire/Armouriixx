@@ -10,13 +10,13 @@ export default function StatsBar() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ background: "#0A0A0B" }}
+      style={{ background: "var(--slate)" }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,162,39,0.05) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(156, 168, 180, 0.04) 0%, transparent 70%)",
         }}
       />
 
@@ -24,7 +24,7 @@ export default function StatsBar() {
         className="absolute top-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(201,162,39,0.5) 20%, rgba(232,196,104,0.8) 50%, rgba(201,162,39,0.5) 80%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(156, 168, 180, 0.35) 20%, rgba(220, 43, 27, 0.45) 50%, rgba(156, 168, 180, 0.35) 80%, transparent 100%)",
         }}
       />
 
@@ -32,7 +32,7 @@ export default function StatsBar() {
         className="absolute bottom-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(201,162,39,0.5) 20%, rgba(232,196,104,0.8) 50%, rgba(201,162,39,0.5) 80%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(156, 168, 180, 0.35) 20%, rgba(220, 43, 27, 0.45) 50%, rgba(156, 168, 180, 0.35) 80%, transparent 100%)",
         }}
       />
 
@@ -47,20 +47,15 @@ export default function StatsBar() {
                     style={{
                       height: "60%",
                       background:
-                        "linear-gradient(180deg, transparent 0%, rgba(201,162,39,0.4) 30%, rgba(201,162,39,0.4) 70%, transparent 100%)",
+                        "linear-gradient(180deg, transparent 0%, rgba(156, 168, 180, 0.25) 30%, rgba(156, 168, 180, 0.25) 70%, transparent 100%)",
                     }}
                   />
                 )}
 
                 <div
-                  className="font-[var(--font-display)] leading-none mb-2 sm:mb-3 transition-all duration-500 w-full"
+                  className="font-[var(--font-display)] leading-none mb-2 sm:mb-3 transition-all duration-500 w-full text-gradient-steel"
                   style={{
                     fontSize: "clamp(2rem, 8vw, 4.5rem)",
-                    background:
-                      "linear-gradient(135deg, #B4881F 0%, #E8C468 45%, #C9A227 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
                     letterSpacing: "-0.02em",
                   }}
                 >
@@ -72,7 +67,7 @@ export default function StatsBar() {
                 </div>
 
                 <p
-                  className="font-[var(--font-display)] uppercase mb-1.5 transition-colors duration-300 group-hover:text-[var(--gold)]"
+                  className="font-[var(--font-display)] uppercase mb-1.5 transition-colors duration-300 group-hover:text-[var(--steel-light)]"
                   style={{
                     fontSize: "clamp(0.6rem, 1vw, 0.78rem)",
                     color: "var(--cream)",
@@ -94,7 +89,7 @@ export default function StatsBar() {
                   style={{
                     width: 0,
                     background:
-                      "linear-gradient(90deg, transparent, #C9A227, transparent)",
+                      "linear-gradient(90deg, transparent, var(--steel), transparent)",
                   }}
                 />
               </div>

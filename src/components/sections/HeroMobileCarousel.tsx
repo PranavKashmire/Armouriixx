@@ -24,7 +24,7 @@ export default function HeroMobileCarousel({
   return (
     <div className="w-full">
       <div
-        className="relative w-full overflow-hidden rounded-[20px] border border-[rgba(201,162,39,0.18)] bg-[#0b0d12] shadow-[0_24px_48px_-16px_rgba(0,0,0,0.65)]"
+        className="relative w-full overflow-hidden rounded-[20px] border border-[rgba(220, 43, 27,0.18)] bg-[#0b0d12] shadow-[0_24px_48px_-16px_rgba(0,0,0,0.65)]"
         style={{ aspectRatio: "3 / 4", maxHeight: "min(72vh, 520px)" }}
       >
         <Image

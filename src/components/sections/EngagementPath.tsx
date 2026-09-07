@@ -9,13 +9,13 @@ export default function EngagementPath() {
   return (
     <section
       className="section-pad relative overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0A0A0B 0%, #0e0e10 100%)" }}
+      style={{ background: "linear-gradient(180deg, var(--slate) 0%, var(--ink) 100%)" }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,162,39,0.06) 0%, transparent 65%)",
+            "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(220, 43, 27,0.06) 0%, transparent 65%)",
         }}
       />
 
@@ -49,7 +49,7 @@ export default function EngagementPath() {
                   </span>
                 </div>
                 <div
-                  className="flex-1 min-w-0 p-4 rounded-sm border border-[rgba(201,162,39,0.15)] bg-[var(--ink-3)]/60"
+                  className="flex-1 min-w-0 p-4 rounded-sm border border-[rgba(220, 43, 27,0.15)] bg-[var(--ink-3)]/60"
                 >
                   <span
                     className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--gold)]/70 block mb-2"
@@ -79,11 +79,11 @@ export default function EngagementPath() {
           {siteConfig.engagementSteps.map((step, i) => (
             <BlurFadeIn key={step.step} delay={i * 80}>
               <div
-                className="group relative h-full p-5 sm:p-6 rounded-sm border border-[rgba(201,162,39,0.12)] bg-[var(--ink-3)]/60 hover:border-[rgba(201,162,39,0.35)] transition-all duration-500 hover:-translate-y-1"
+                className="group relative h-full p-5 sm:p-6 rounded-sm border border-[rgba(220, 43, 27,0.12)] bg-[var(--ink-3)]/60 hover:border-[rgba(220, 43, 27,0.35)] transition-all duration-500 hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between mb-4 gap-2">
                   <span
-                    className="font-[var(--font-display)] text-2xl text-[rgba(201,162,39,0.25)] group-hover:text-[rgba(201,162,39,0.45)] transition-colors"
+                    className="font-[var(--font-display)] text-2xl text-[rgba(220, 43, 27,0.25)] group-hover:text-[rgba(220, 43, 27,0.45)] transition-colors"
                   >
                     {step.step}
                   </span>

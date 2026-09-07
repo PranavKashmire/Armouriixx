@@ -7,26 +7,15 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import BlurFadeIn from "@/components/ui/BlurFadeIn";
 import CTABanner from "@/components/sections/CTABanner";
 import CoreCapabilities from "@/components/sections/CoreCapabilities";
+import GuardTechUSP from "@/components/sections/GuardTechUSP";
+import NightclubBouncers from "@/components/sections/NightclubBouncers";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import DriftWallHeroBg from "@/components/ui/DriftWallHeroBg";
+import ServiceIconBox from "@/components/ui/ServiceIconBox";
+import { serviceIndustries, type ServiceIndustry } from "@/data/serviceIndustries";
 
-const industries = [
-  { icon: "🏢", label: "Corporate & Commercial", id: "corporate", clients: "Corporate offices, business parks, IT companies, financial institutions, banks & NBFCs, MNCs" },
-  { icon: "👔", label: "VIP & Executive Protection", id: "vip", clients: "CEOs, HNWIs, celebrities, politicians, diplomats, international delegations, royal families/VVIPs" },
-  { icon: "🏨", label: "Hospitality & Luxury", id: "hospitality", clients: "Five-star hotels, luxury resorts, premium clubs, casinos, private villas, serviced apartments" },
-  { icon: "🎪", label: "Events & Entertainment", id: "events", clients: "Corporate events, concerts/festivals, award shows, fashion shows, weddings, product launches, exhibitions, sports events" },
-  { icon: "🏗️", label: "Real Estate", id: "real-estate", clients: "Residential communities, luxury apartments, commercial complexes, malls, business towers, gated communities" },
-  { icon: "🏭", label: "Industrial & Manufacturing", id: "industrial", clients: "Plants, warehouses, logistics parks, distribution centers, oil & gas, construction sites" },
-  { icon: "🏥", label: "Healthcare", id: "healthcare", clients: "Hospitals, medical colleges, research centers, pharma companies, diagnostic centers" },
-  { icon: "🎓", label: "Education", id: "education", clients: "Universities, international schools, colleges, campuses, student housing" },
-  { icon: "🏛️", label: "Government & Public Sector", id: "government", clients: "Government offices, public infrastructure, embassies/consulates, public events, municipal facilities" },
-  { icon: "💎", label: "Retail & Luxury Brands", id: "retail", clients: "Luxury retail, malls, jewelry showrooms, boutiques, auto dealerships" },
-  { icon: "✈️", label: "Transportation & Logistics", id: "transport", clients: "Airports, seaports, logistics companies, fleet ops, cargo terminals, VIP transportation" },
-  { icon: "💻", label: "Technology & Critical Infrastructure", id: "tech", clients: "Data centers, telecom, power plants, renewable energy, smart cities, critical infra" },
-];
-
-function IndustryAccordion({ industry }: { industry: typeof industries[0] }) {
+function IndustryAccordion({ industry }: { industry: ServiceIndustry }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -37,7 +26,7 @@ function IndustryAccordion({ industry }: { industry: typeof industries[0] }) {
         aria-expanded={open}
       >
         <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-          <span className="text-xl sm:text-2xl shrink-0">{industry.icon}</span>
+          <ServiceIconBox icon={industry.icon} className="w-10 h-10 sm:w-11 sm:h-11" iconClassName="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
           <span className="font-[var(--font-display)] text-base sm:text-xl tracking-wider text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors duration-300 break-words">
             {industry.label}
           </span>
@@ -83,6 +72,10 @@ export default function ServicesPage() {
 
         <CoreCapabilities />
 
+        <GuardTechUSP />
+
+        <NightclubBouncers />
+
         {/* Industries */}
         <section className="section-pad bg-[var(--ink)]">
           <div className="max-w-5xl mx-auto px-6">
@@ -95,7 +88,7 @@ export default function ServicesPage() {
               />
             </BlurFadeIn>
             <div className="space-y-3">
-              {industries.map((ind, i) => (
+              {serviceIndustries.map((ind, i) => (
                 <BlurFadeIn key={ind.id} delay={i * 40}>
                   <IndustryAccordion industry={ind} />
                 </BlurFadeIn>

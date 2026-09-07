@@ -291,7 +291,7 @@ export default function CoreCapabilities() {
             <div
               className="h-px w-10"
               style={{
-                background: "linear-gradient(90deg, rgba(201,162,39,0.7), rgba(201,162,39,0.2))",
+                background: "linear-gradient(90deg, rgba(220, 43, 27,0.7), rgba(220, 43, 27,0.2))",
               }}
             />
             <span

@@ -43,11 +43,11 @@ function IndustryCard({
 }) {
   return (
     <div
-      className="group flex-shrink-0 flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-sm border border-[rgba(201,162,39,0.08)] bg-[var(--ink-3)]/40 hover:border-[rgba(201,162,39,0.3)] transition-all duration-400"
+      className="group flex-shrink-0 flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-sm border border-[rgba(220, 43, 27,0.08)] bg-[var(--ink-3)]/40 hover:border-[rgba(220, 43, 27,0.3)] transition-all duration-400"
       style={{ width: "clamp(200px, 32vw, 260px)" }}
     >
       <div
-        className="w-9 h-9 rounded-sm flex items-center justify-center shrink-0 border border-[rgba(201,162,39,0.15)] text-[var(--gold)]/70 group-hover:text-[var(--gold)] group-hover:border-[rgba(201,162,39,0.4)] transition-colors"
+        className="w-9 h-9 rounded-sm flex items-center justify-center shrink-0 border border-[rgba(220, 43, 27,0.15)] text-[var(--gold)]/70 group-hover:text-[var(--gold)] group-hover:border-[rgba(220, 43, 27,0.4)] transition-colors"
       >
         <Icon className="w-4 h-4" />
       </div>
@@ -133,20 +133,20 @@ export default function IndustriesMarquee() {
   return (
     <section
       className="relative py-14 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0e0e10 0%, #0A0A0B 100%)" }}
+      style={{ background: "linear-gradient(180deg, var(--slate-2) 0%, var(--ink) 100%)" }}
     >
       <div
         className="absolute top-0 inset-x-0 h-px pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(201,162,39,0.35) 40%, rgba(201,162,39,0.35) 60%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(220, 43, 27,0.35) 40%, rgba(220, 43, 27,0.35) 60%, transparent)",
         }}
       />
       <div
         className="absolute bottom-0 inset-x-0 h-px pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(201,162,39,0.35) 40%, rgba(201,162,39,0.35) 60%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(220, 43, 27,0.35) 40%, rgba(220, 43, 27,0.35) 60%, transparent)",
         }}
       />
 
@@ -180,11 +180,11 @@ export default function IndustriesMarquee() {
 
       <div
         className="absolute inset-y-0 left-0 w-28 md:w-48 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(90deg, #0A0A0B 0%, transparent 100%)" }}
+        style={{ background: "linear-gradient(90deg, #000000 0%, transparent 100%)" }}
       />
       <div
         className="absolute inset-y-0 right-0 w-28 md:w-48 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(270deg, #0A0A0B 0%, transparent 100%)" }}
+        style={{ background: "linear-gradient(270deg, #000000 0%, transparent 100%)" }}
       />
 
       <div className="space-y-3 relative z-0">

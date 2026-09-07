@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Shield, Mail, Phone, MapPin, ArrowRight, ChevronDown } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, ChevronDown } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
+import LogoLink from "@/components/ui/Logo";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -17,6 +18,7 @@ const services = [
   { label: "Surveillance & Control Room", href: "/services#surveillance-control-room" },
   { label: "Rapid Response", href: "/services#rapid-response" },
   { label: "Corporate Security", href: "/services#corporate-security-programs" },
+  { label: "Nightclub Bouncers", href: "/services#nightclub-bouncers" },
 ];
 
 const socialLinks = [
@@ -59,27 +61,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 relative z-10">
         {/* Mobile layout — accordions + compact contact */}
         <div className="sm:hidden mb-8">
-          <Link href="/" className="flex items-center gap-3 mb-4 group">
-            <div className="relative shrink-0">
-              <Shield
-                className="w-9 h-9 text-[var(--gold)]"
-                fill="currentColor"
-                strokeWidth={0.5}
-                stroke="var(--gold-dark)"
-              />
-              <span className="absolute inset-0 flex items-center justify-center text-[9px] font-bold text-[var(--ink)] tracking-tight">
-                AXS
-              </span>
-            </div>
-            <div className="flex flex-col leading-none min-w-0">
-              <span className="font-[var(--font-display)] text-lg tracking-widest truncate">
-                ARMOURI<span className="text-gradient-gold">XX</span>
-              </span>
-              <span className="text-[7px] tracking-[0.3em] text-[var(--gold)] font-semibold uppercase mt-1">
-                Security
-              </span>
-            </div>
-          </Link>
+          <LogoLink size="footer" className="mb-4" />
           <p className="text-[var(--cream-muted)] text-sm leading-relaxed mb-3 font-[var(--font-body)]">
             {siteConfig.tagline}
           </p>
@@ -183,27 +165,7 @@ export default function Footer() {
         {/* Desktop / tablet — original 4-column grid */}
         <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 mb-12 sm:mb-16">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div className="relative shrink-0">
-                <Shield
-                  className="w-10 h-10 text-[var(--gold)]"
-                  fill="currentColor"
-                  strokeWidth={0.5}
-                  stroke="var(--gold-dark)"
-                />
-                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-[var(--ink)] tracking-tight">
-                  AXS
-                </span>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-[var(--font-display)] text-xl sm:text-2xl tracking-widest">
-                  ARMOURI<span className="text-gradient-gold">XX</span>
-                </span>
-                <span className="text-[8px] tracking-[0.35em] text-[var(--gold)] font-semibold uppercase mt-1">
-                  Security
-                </span>
-              </div>
-            </Link>
+            <LogoLink size="footer" className="mb-6" />
             <p className="text-[var(--cream-muted)] text-sm leading-relaxed mb-4 max-w-sm font-[var(--font-body)]">
               {siteConfig.tagline}
             </p>

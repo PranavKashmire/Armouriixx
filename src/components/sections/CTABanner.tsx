@@ -1,6 +1,6 @@
 import ShimmerButton from "@/components/ui/ShimmerButton";
 import BlurFadeIn from "@/components/ui/BlurFadeIn";
-import { Shield } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 
@@ -25,12 +25,12 @@ export default function CTABanner({
 }: CTABannerProps) {
   return (
     <section className="relative py-16 sm:py-20 md:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--ink-2)] via-[#0e0c03] to-[var(--ink-2)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--ink-2)] via-[var(--slate)] to-[var(--ink-2)]" />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,162,39,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(156, 168, 180, 0.05) 0%, rgba(220, 43, 27, 0.04) 40%, transparent 70%)",
         }}
       />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/50 to-transparent" />
@@ -43,12 +43,9 @@ export default function CTABanner({
           >
             {siteConfig.tagline}
           </p>
-          <Shield
-            className="w-12 h-12 sm:w-16 sm:h-16 text-[var(--gold)] mx-auto mb-6 sm:mb-8 opacity-80"
-            fill="currentColor"
-            strokeWidth={0.5}
-            stroke="var(--gold-dark)"
-          />
+          <div className="flex justify-center mb-6 sm:mb-8">
+            <Logo size="lg" className="mx-auto" />
+          </div>
           <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[var(--cream)] mb-4 sm:mb-6 leading-none">
             {headline}{" "}
             <span className="text-gradient-gold">{headlineHighlight}</span>

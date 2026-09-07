@@ -11,9 +11,14 @@ export const siteConfig = {
     name: "Akshay Sanjay Bhote",
     title: "Founder & Managing Director",
   },
+  coFounder: {
+    name: "Piyush Pawar",
+    title: "Co-Founder & Director",
+  },
   founded: 2026,
   region: "Maharashtra, India",
-  coverage: "PAN Maharashtra · Expanding PAN India",
+  coverage: "India & UAE · PAN Maharashtra · Expanding PAN India",
+  operatingRegions: ["India", "UAE (Dubai)"],
 
   contact: {
     phone: "+91 98200 12345",
@@ -37,7 +42,32 @@ export const siteConfig = {
     promise:
       "Every deployment is intelligence-led. Every patrol is tracked. Every incident is documented. That is how we protect people, assets, and reputations without compromise.",
     differentiator:
-      "We combine elite personnel with body-cams, GPS patrol monitoring, and digital incident reporting as standard — not premium add-ons.",
+      "India's first security firm to make body-worn cameras part of standard operating procedure — combined with GPS checkpoint monitoring and digital reporting on every deployment.",
+  },
+
+  guardTechUSP: {
+    eyebrow: "Core USP",
+    title: "Highly Trained Guards.",
+    titleHighlight: "Tech-Equipped. Always Monitored.",
+    description:
+      "ARMOURIXX doesn't post untrained personnel and hope for the best. We pioneered India's first body-cam standard operating procedure — every guard is rigorously trained, issued high-tech field equipment for constant surveillance, and monitored through GPS checkpoints placed across your site so command always knows where they are, what they're doing, and that standards are being met.",
+    pillars: [
+      {
+        title: "Elite-Trained Personnel",
+        desc: "Background-verified guards trained to ARMOURIXX protocols — not simply hired and posted at your gate.",
+        tag: "HUMAN STANDARD",
+      },
+      {
+        title: "Body-Cam & Field Tech",
+        desc: "Body-worn cameras, comms, and digital tools on every shift — constant visual surveillance and evidence-grade accountability.",
+        tag: "LIVE RECORDING",
+      },
+      {
+        title: "GPS Checkpoint Network",
+        desc: "Checkpoints mapped across your site. Every patrol scan is GPS-verified so guard movements are tracked in real time — never assumed.",
+        tag: "SITE MONITORING",
+      },
+    ],
   },
 
   engagementSteps: [

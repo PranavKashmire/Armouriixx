@@ -62,7 +62,7 @@ export default function SectionHeading({
                 <span
                   className="font-[var(--font-body)] text-[10px] font-bold tabular-nums"
                   style={{
-                    color: "rgba(201,162,39,0.55)",
+                    color: "var(--steel-dark)",
                     letterSpacing: "0.12em",
                   }}
                 >
@@ -78,8 +78,8 @@ export default function SectionHeading({
                     x="3" y="0" width="4.24" height="4.24"
                     rx="0.4"
                     transform="rotate(45 3 0)"
-                    fill="#C9A227"
-                    fillOpacity="0.7"
+                    fill="var(--steel)"
+                    fillOpacity="0.85"
                   />
                 </svg>
               </>
@@ -91,7 +91,7 @@ export default function SectionHeading({
               style={{
                 width: indexLabel ? "28px" : "40px",
                 background:
-                  "linear-gradient(90deg, rgba(201,162,39,0.7), rgba(201,162,39,0.2))",
+                  "linear-gradient(90deg, rgba(156, 168, 180, 0.5), rgba(156, 168, 180, 0.1))",
               }}
             />
           </div>
@@ -100,7 +100,7 @@ export default function SectionHeading({
           <span
             className="font-[var(--font-body)] text-[9px] sm:text-[10px] font-semibold uppercase text-center sm:whitespace-nowrap"
             style={{
-              color: "var(--gold)",
+              color: "var(--steel-light)",
               letterSpacing: "0.28em",
             }}
           >
@@ -112,7 +112,7 @@ export default function SectionHeading({
             className="h-px flex-1 max-w-[40px]"
             style={{
               background:
-                "linear-gradient(90deg, rgba(201,162,39,0.2), rgba(201,162,39,0))",
+                "linear-gradient(90deg, rgba(156, 168, 180, 0.1), rgba(156, 168, 180, 0))",
             }}
           />
         </div>

@@ -117,7 +117,7 @@ export default function ThreePillars() {
                 <StarBorder
                   as="div"
                   className="star-border-block"
-                  color="#C9A227"
+                  color="#DC2B1B"
                   speed={isActive ? "5s" : "7s"}
                   thickness={isActive ? 3 : 2}
                 >
@@ -143,7 +143,7 @@ export default function ThreePillars() {
                         transition={{ duration: 0.6, ease: "backOut" }}
                         className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-5 sm:mb-8 transition-colors duration-500 ${
                           isActive
-                            ? "bg-[var(--gold)]/10 text-[var(--gold)] shadow-[0_0_20px_rgba(201,162,39,0.3)]"
+                            ? "bg-[var(--gold)]/10 text-[var(--gold)] shadow-[0_0_20px_rgba(220, 43, 27,0.3)]"
                             : "bg-white/5 text-[var(--cream-muted)]"
                         }`}
                       >
@@ -217,7 +217,7 @@ export default function ThreePillars() {
               {active === idx && (
                 <motion.div
                   layoutId="activeIndicator"
-                  className="absolute inset-0 bg-[var(--gold)] rounded-full shadow-[0_0_10px_rgba(201,162,39,0.5)]"
+                  className="absolute inset-0 bg-[var(--gold)] rounded-full shadow-[0_0_10px_rgba(220, 43, 27,0.5)]"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}

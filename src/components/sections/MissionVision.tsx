@@ -65,7 +65,7 @@ function ParticleField({ count = 40 }: { count?: number }) {
         if (p.y > canvas.height) p.y = 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(201,162,39,${p.alpha})`;
+        ctx.fillStyle = `rgba(220, 43, 27,${p.alpha})`;
         ctx.fill();
       });
       raf = requestAnimationFrame(draw);

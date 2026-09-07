@@ -39,12 +39,12 @@ export const armourixxDifference: DifferencePillar[] = [
     number: "02",
     code: "ADV-TD-02",
     title: "Technology-Driven",
-    desc: "Body-worn cameras, GPS tracking, and AI-assisted surveillance deployed at scale across Maharashtra.",
+    desc: "Body-worn cameras, GPS checkpoint tracking, and AI-assisted surveillance deployed at scale across Maharashtra.",
     tagline: "Intelligence behind every patrol.",
     storyHook:
-      "Among the few firms in Maharashtra running body-cams, GPS check-ins, and AI monitoring as standard — not premium add-ons.",
+      "Among the few firms in Maharashtra running body-cams, GPS checkpoint verification, and live guard monitoring as standard — not premium add-ons.",
     chapter: "Pillar II — Digital Edge",
-    proof: "Body-cam · GPS · AI surveillance",
+    proof: "Body-cam · GPS checkpoints · Live monitoring",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&q=85",
     imageAlt: "Advanced security monitoring and surveillance technology",

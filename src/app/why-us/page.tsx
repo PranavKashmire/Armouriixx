@@ -8,6 +8,7 @@ import CTABanner from "@/components/sections/CTABanner";
 import DriftWallHeroBg from "@/components/ui/DriftWallHeroBg";
 import StatsBar from "@/components/sections/StatsBar";
 import OperationalStandards from "@/components/sections/OperationalStandards";
+import GuardTechUSP from "@/components/sections/GuardTechUSP";
 import ArmourixxDifference from "@/components/sections/ArmourixxDifference";
 
 export default function WhyUsPage() {
@@ -36,6 +37,7 @@ export default function WhyUsPage() {
         </section>
 
         <ArmourixxDifference />
+        <GuardTechUSP />
         <Testimonials />
         <OperationalStandards />
         <StatsBar />

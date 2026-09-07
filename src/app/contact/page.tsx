@@ -15,6 +15,7 @@ const services = [
   "Manned Guarding",
   "VIP & Executive Protection",
   "Event Security",
+  "Nightclub Bouncers",
   "Surveillance & Control Room",
   "Corporate Security Program",
   "Rapid Response",

@@ -5,6 +5,7 @@ import StatsBar from "@/components/sections/StatsBar";
 import AboutTeaser from "@/components/sections/AboutTeaser";
 import DriftWall from "@/components/sections/DriftWall";
 import ServicesGrid from "@/components/sections/ServicesGrid";
+import SurveillanceCTA from "@/components/sections/SurveillanceCTA";
 import EngagementPath from "@/components/sections/EngagementPath";
 import IndustriesMarquee from "@/components/sections/IndustriesMarquee";
 import Testimonials from "@/components/sections/Testimonials";
@@ -27,6 +28,7 @@ export default function HomePage() {
         <AboutTeaser />
         <DriftWall />
         <ServicesGrid />
+        <SurveillanceCTA />
         <EngagementPath />
         <IndustriesMarquee />
         <Testimonials />

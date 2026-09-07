@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Shield, Crosshair, Camera } from "lucide-react";
+import { Shield, Crosshair, Award, Cctv } from "lucide-react";
 import ShimmerButton from "@/components/ui/ShimmerButton";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import RegionFlags from "@/components/ui/RegionFlags";
 
 const DepthCarousel = dynamic(() => import("@/components/ui/DepthCarousel"), { ssr: false });
 const LightPillar = dynamic(() => import("@/components/ui/LightPillar"), { ssr: false });
@@ -13,10 +14,41 @@ const HeroMobileCarousel = dynamic(() => import("@/components/sections/HeroMobil
   ssr: false,
 });
 
-const floatingChips = [
-  { icon: <Crosshair className="w-4 h-4 shrink-0" />, label: "24/7 Rapid Response" },
-  { icon: <Shield className="w-4 h-4 shrink-0" />, label: "GPS-Tracked Patrols" },
-  { icon: <Camera className="w-4 h-4 shrink-0" />, label: "Body-Cam Verified" },
+type FloatingChip = {
+  icon: React.ReactNode;
+  label: string;
+  featured?: boolean;
+  featuredBadge?: string;
+  title?: string;
+  href?: string;
+};
+
+const floatingChips: FloatingChip[] = [
+  {
+    icon: <Crosshair className="w-4 h-4 shrink-0" />,
+    label: "GPS Checkpoint Patrols",
+  },
+  {
+    icon: <Award className="w-4 h-4 shrink-0" />,
+    label: "India's 1st Body-Cam SOP",
+    featured: true,
+    featuredBadge: "Pioneered in India",
+    title:
+      "ARMOURIXX is the first security company in India to include body-worn cameras in standard operating procedure for every deployment.",
+  },
+  {
+    icon: <Cctv className="w-4 h-4 shrink-0" />,
+    label: "24/7 Surveillance",
+    href: "/services#surveillance-control-room",
+    featured: true,
+    featuredBadge: "Always On",
+    title:
+      "AI-assisted CCTV monitoring with manned control rooms and real-time incident documentation across India and the UAE.",
+  },
+  {
+    icon: <Shield className="w-4 h-4 shrink-0" />,
+    label: "24/7 Rapid Response",
+  },
 ];
 
 const img = (filename: string) => encodeURI(`/images/${filename}`);
@@ -133,7 +165,7 @@ export default function Hero() {
     cardWidth: carouselSize.width,
     cardHeight: carouselSize.height,
     radius: 20,
-    tint: "#0A0A0B",
+    tint: "#000000",
     depth: Math.round(carouselSize.width * 0.55),
     spread: Math.round(carouselSize.width * 0.18),
     tilt: 20,
@@ -158,19 +190,19 @@ export default function Hero() {
       className="relative min-h-[100svh] flex items-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-[var(--ink)]">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0B] via-[#111108] to-[#0A0A0B]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[var(--slate)] to-black" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 50% 80%, rgba(180,136,31,0.12) 0%, transparent 70%)",
+              "radial-gradient(ellipse 80% 60% at 50% 80%, rgba(156, 168, 180, 0.06) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 80% 20%, rgba(220, 43, 27, 0.06) 0%, transparent 70%)",
           }}
         />
         <div className="absolute inset-0 z-0 pointer-events-none hidden sm:block">
           <LightPillar
-            topColor="#fff527"
-            bottomColor="#EAB308"
-            intensity={0.8}
+            topColor="#C5CDD6"
+            bottomColor="#DC2B1B"
+            intensity={0.55}
             rotationSpeed={1.8}
             glowAmount={0.001}
             pillarWidth={3.0}
@@ -187,7 +219,7 @@ export default function Hero() {
           className="absolute inset-0 opacity-[0.04] hidden md:block"
           style={{
             backgroundImage:
-              "linear-gradient(var(--gold) 1px, transparent 1px), linear-gradient(90deg, var(--gold) 1px, transparent 1px)",
+              "linear-gradient(var(--steel-dark) 1px, transparent 1px), linear-gradient(90deg, var(--steel-dark) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -197,11 +229,15 @@ export default function Hero() {
             className="cursor-mask absolute inset-0 opacity-40 pointer-events-none hidden md:block"
             style={{
               background:
-                "radial-gradient(ellipse 70% 50% at 60% 50%, rgba(201,162,39,0.2) 0%, transparent 70%)",
+                "radial-gradient(ellipse 70% 50% at 60% 50%, rgba(156, 168, 180, 0.12) 0%, transparent 70%)",
             }}
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/20" />
+      </div>
+
+      <div className="absolute top-24 sm:top-28 lg:top-32 right-4 sm:right-6 lg:right-8 z-20 pointer-events-none">
+        <RegionFlags variant="hero" />
       </div>
 
       <div className="relative z-10 w-full flex items-center">
@@ -229,8 +265,8 @@ export default function Hero() {
                   sentence="Elite Protection Unmatched Presence"
                   manualMode={false}
                   blurAmount={3}
-                  borderColor="#C9A227"
-                  glowColor="rgba(201,162,39,0.75)"
+                  borderColor="#DC2B1B"
+                  glowColor="rgba(220, 43, 27,0.75)"
                   animationDuration={1.4}
                   pauseBetweenAnimations={1.2}
                   onWordChange={setActiveWordIndex}
@@ -270,25 +306,80 @@ export default function Hero() {
           </div>
 
           <div
-            className="w-full grid grid-cols-1 sm:grid-cols-3 rounded-sm overflow-hidden mt-6 sm:mt-8 border border-[var(--gold)]/30"
-            style={{ background: "rgba(20, 16, 6, 0.85)", backdropFilter: "blur(16px)" }}
+            className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 rounded-sm overflow-hidden mt-6 sm:mt-8 border border-[var(--border-subtle)]"
+            style={{ background: "rgba(0, 0, 0, 0.85)", backdropFilter: "blur(16px)" }}
           >
-            {floatingChips.map((chip, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-center relative py-4 sm:py-5 px-4 border-b sm:border-b-0 border-[var(--gold)]/15 last:border-b-0"
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <span className="text-[var(--gold)] shrink-0">{chip.icon}</span>
-                  <span className="text-sm sm:text-base text-[var(--cream)] font-semibold text-center sm:text-left">
-                    {chip.label}
-                  </span>
+            {floatingChips.map((chip, i) => {
+              const chipContent = (
+                <>
+                  <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 min-w-0 text-center sm:text-left">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <span
+                        className={`shrink-0 ${
+                          chip.featured ? "text-[var(--gold-light)]" : "text-[var(--steel-light)]"
+                        }`}
+                      >
+                        {chip.icon}
+                      </span>
+                      <span
+                        className={`text-sm sm:text-base font-semibold leading-tight ${
+                          chip.featured
+                            ? "text-gradient-gold"
+                            : "text-[var(--cream)]"
+                        }`}
+                      >
+                        {chip.label}
+                      </span>
+                    </div>
+                    {"featuredBadge" in chip && chip.featuredBadge && (
+                      <span className="text-[8px] sm:text-[9px] font-bold tracking-[0.22em] uppercase text-[var(--gold)]/80 sm:ml-0">
+                        {chip.featuredBadge}
+                      </span>
+                    )}
+                  </div>
+                  {i < floatingChips.length - 1 && (
+                    <div className="hidden xl:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-8 bg-gradient-to-b from-transparent via-[var(--gold)] to-transparent opacity-60" />
+                  )}
+                </>
+              );
+
+              const chipClassName = `flex items-center justify-center relative py-4 sm:py-5 px-3 sm:px-4 border-b sm:border-b-0 border-[var(--gold)]/15 last:border-b-0 ${
+                chip.featured
+                  ? "bg-gradient-to-b from-[var(--gold)]/12 to-[var(--gold)]/4 sm:px-5"
+                  : ""
+              } ${
+                "href" in chip && chip.href && !chip.featured
+                  ? "group hover:bg-[var(--gold)]/5 transition-colors duration-300"
+                  : ""
+              } ${
+                chip.featured && "href" in chip && chip.href
+                  ? "group transition-colors duration-300 hover:from-[var(--gold)]/16 hover:to-[var(--gold)]/6"
+                  : ""
+              }`;
+
+              if ("href" in chip && chip.href) {
+                return (
+                  <Link
+                    key={chip.label}
+                    href={chip.href}
+                    className={chipClassName}
+                    title={chip.title ?? `${chip.label} — view service details`}
+                  >
+                    {chipContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <div
+                  key={chip.label}
+                  className={chipClassName}
+                  title={"title" in chip ? chip.title : undefined}
+                >
+                  {chipContent}
                 </div>
-                {i < floatingChips.length - 1 && (
-                  <div className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-8 bg-gradient-to-b from-transparent via-[var(--gold)] to-transparent opacity-60" />
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

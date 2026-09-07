@@ -21,7 +21,7 @@ export default function GlassCard({
         "glass rounded-lg p-6 relative overflow-hidden",
         goldBorder ? "border-[var(--gold-dark)]/40" : "border-white/8",
         hover &&
-          "transition-all duration-300 hover:border-[var(--gold)]/40 hover:shadow-[0_0_30px_rgba(201,162,39,0.12)] hover:-translate-y-1",
+          "transition-all duration-300 hover:border-[var(--gold)]/40 hover:shadow-[0_0_30px_rgba(220, 43, 27,0.12)] hover:-translate-y-1",
         className
       )}
     >

@@ -31,6 +31,16 @@ export const metadata: Metadata = {
       "Elite private security across Maharashtra — trained personnel, body-cams, GPS patrol monitoring, and command-center accountability.",
     type: "website",
     locale: "en_IN",
+    images: [
+      {
+        url: encodeURI("/images/armourixx_logo_transparent_exact (1).png"),
+        alt: "ARMOURIXX Security",
+      },
+    ],
+  },
+  icons: {
+    icon: encodeURI("/images/armourixx_logo_transparent_exact (1).png"),
+    apple: encodeURI("/images/armourixx_logo_transparent_exact (1).png"),
   },
 };
 
@@ -38,7 +48,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0A0A0B",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
