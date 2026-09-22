@@ -60,11 +60,8 @@ export default function SectionHeading({
               <>
                 {/* Section index number */}
                 <span
-                  className="font-[var(--font-body)] text-[10px] font-bold tabular-nums"
-                  style={{
-                    color: "var(--steel-dark)",
-                    letterSpacing: "0.12em",
-                  }}
+                  className="font-[var(--font-body)] text-[10px] font-bold tabular-nums text-[var(--gold-dark)]"
+                  style={{ letterSpacing: "0.12em" }}
                 >
                   {indexLabel}
                 </span>
@@ -78,7 +75,7 @@ export default function SectionHeading({
                     x="3" y="0" width="4.24" height="4.24"
                     rx="0.4"
                     transform="rotate(45 3 0)"
-                    fill="var(--steel)"
+                    fill="var(--gold)"
                     fillOpacity="0.85"
                   />
                 </svg>
@@ -91,7 +88,7 @@ export default function SectionHeading({
               style={{
                 width: indexLabel ? "28px" : "40px",
                 background:
-                  "linear-gradient(90deg, rgba(156, 168, 180, 0.5), rgba(156, 168, 180, 0.1))",
+                  "linear-gradient(90deg, rgba(212, 175, 55, 0.55), rgba(212, 175, 55, 0.08))",
               }}
             />
           </div>
@@ -100,7 +97,7 @@ export default function SectionHeading({
           <span
             className="font-[var(--font-body)] text-[9px] sm:text-[10px] font-semibold uppercase text-center sm:whitespace-nowrap"
             style={{
-              color: "var(--steel-light)",
+              color: "var(--gold-light)",
               letterSpacing: "0.28em",
             }}
           >
@@ -112,7 +109,7 @@ export default function SectionHeading({
             className="h-px flex-1 max-w-[40px]"
             style={{
               background:
-                "linear-gradient(90deg, rgba(156, 168, 180, 0.1), rgba(156, 168, 180, 0))",
+                "linear-gradient(90deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0))",
             }}
           />
         </div>

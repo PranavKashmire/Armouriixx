@@ -30,7 +30,7 @@ export default function CTABanner({
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(156, 168, 180, 0.05) 0%, rgba(220, 43, 27, 0.04) 40%, transparent 70%)",
+            "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212, 175, 55, 0.07) 0%, rgba(196, 30, 30, 0.05) 40%, transparent 70%)",
         }}
       />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/50 to-transparent" />
@@ -59,7 +59,7 @@ export default function CTABanner({
             </ShimmerButton>
             <Link
               href={secondaryHref}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-sm text-[var(--cream-muted)] font-bold tracking-widest uppercase hover:text-[var(--cream)] transition-colors duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-sm font-bold tracking-widest uppercase btn-gold-outline w-full sm:w-auto"
             >
               {secondaryLabel} →
             </Link>

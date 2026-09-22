@@ -66,13 +66,13 @@ export default function RegionFlags({
         {heroRegions.map(({ id, label, code, Flag }) => (
           <div
             key={id}
-            className="inline-flex items-center gap-2 sm:gap-2.5 rounded-full border border-white/15 bg-[rgba(10,10,11,0.72)] backdrop-blur-md px-2.5 sm:px-3 py-1.5 sm:py-2 shadow-lg shadow-black/25"
+            className="inline-flex items-center gap-1.5 sm:gap-2.5 rounded-full border border-white/15 bg-[rgba(10,10,11,0.72)] backdrop-blur-md px-2 sm:px-3 py-1 sm:py-2 shadow-lg shadow-black/25"
             title={label}
           >
-            <span className="inline-flex rounded-[3px] overflow-hidden shrink-0 border border-white/15 shadow-sm w-[22px] h-[14px] sm:w-[26px] sm:h-[17px]">
+            <span className="inline-flex rounded-[3px] overflow-hidden shrink-0 border border-white/15 shadow-sm w-5 h-[13px] sm:w-[26px] sm:h-[17px]">
               <Flag className="w-full h-full block" />
             </span>
-            <span className="text-[10px] sm:text-xs font-bold tracking-[0.18em] text-[var(--cream)] pr-0.5">
+            <span className="text-[9px] sm:text-xs font-bold tracking-[0.14em] sm:tracking-[0.18em] text-[var(--cream)] pr-0.5">
               {code}
             </span>
           </div>

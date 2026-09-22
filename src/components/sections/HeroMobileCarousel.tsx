@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import RegionFlags from "@/components/ui/RegionFlags";
 
 export interface HeroCarouselItem {
   image: string;
@@ -36,6 +37,12 @@ export default function HeroMobileCarousel({
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority={safeIndex === 0}
         />
+        <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 z-10 pointer-events-none">
+          <RegionFlags
+            variant="hero"
+            className="!flex-col !items-end !gap-1.5 sm:!gap-2"
+          />
+        </div>
       </div>
 
       <div

@@ -24,7 +24,7 @@ export default function StatsBar() {
         className="absolute top-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(156, 168, 180, 0.35) 20%, rgba(220, 43, 27, 0.45) 50%, rgba(156, 168, 180, 0.35) 80%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 20%, rgba(196, 30, 30, 0.35) 50%, rgba(212, 175, 55, 0.4) 80%, transparent 100%)",
         }}
       />
 
@@ -32,7 +32,7 @@ export default function StatsBar() {
         className="absolute bottom-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(156, 168, 180, 0.35) 20%, rgba(220, 43, 27, 0.45) 50%, rgba(156, 168, 180, 0.35) 80%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 20%, rgba(196, 30, 30, 0.35) 50%, rgba(212, 175, 55, 0.4) 80%, transparent 100%)",
         }}
       />
 
@@ -47,13 +47,13 @@ export default function StatsBar() {
                     style={{
                       height: "60%",
                       background:
-                        "linear-gradient(180deg, transparent 0%, rgba(156, 168, 180, 0.25) 30%, rgba(156, 168, 180, 0.25) 70%, transparent 100%)",
+                        "linear-gradient(180deg, transparent 0%, rgba(212, 175, 55, 0.3) 30%, rgba(212, 175, 55, 0.3) 70%, transparent 100%)",
                     }}
                   />
                 )}
 
                 <div
-                  className="font-[var(--font-display)] leading-none mb-2 sm:mb-3 transition-all duration-500 w-full text-gradient-steel"
+                  className="font-[var(--font-display)] leading-none mb-2 sm:mb-3 transition-all duration-500 w-full text-gradient-gold"
                   style={{
                     fontSize: "clamp(2rem, 8vw, 4.5rem)",
                     letterSpacing: "-0.02em",
@@ -67,7 +67,7 @@ export default function StatsBar() {
                 </div>
 
                 <p
-                  className="font-[var(--font-display)] uppercase mb-1.5 transition-colors duration-300 group-hover:text-[var(--steel-light)]"
+                  className="font-[var(--font-display)] uppercase mb-1.5 transition-colors duration-300 group-hover:text-[var(--gold-light)]"
                   style={{
                     fontSize: "clamp(0.6rem, 1vw, 0.78rem)",
                     color: "var(--cream)",
@@ -89,7 +89,7 @@ export default function StatsBar() {
                   style={{
                     width: 0,
                     background:
-                      "linear-gradient(90deg, transparent, var(--steel), transparent)",
+                      "linear-gradient(90deg, transparent, var(--gold), transparent)",
                   }}
                 />
               </div>

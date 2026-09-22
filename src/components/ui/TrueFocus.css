@@ -99,8 +99,8 @@
   position: absolute;
   width: var(--corner-size, 14px);
   height: var(--corner-size, 14px);
-  border: 2px solid var(--border-color, #DC2B1B);
-  filter: drop-shadow(0px 0px 5px var(--glow-color, rgba(220, 43, 27, 0.8)));
+  border: 2px solid var(--border-color, #D4AF37);
+  filter: drop-shadow(0px 0px 6px var(--glow-color, rgba(212, 175, 55, 0.75)));
   border-radius: 2px;
   box-sizing: border-box;
 }

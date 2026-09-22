@@ -190,18 +190,18 @@ export default function Hero() {
       className="relative min-h-[100svh] flex items-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-[var(--ink)]">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-[var(--slate)] to-black" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[var(--ink-3)] to-black" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 50% 80%, rgba(156, 168, 180, 0.06) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 80% 20%, rgba(220, 43, 27, 0.06) 0%, transparent 70%)",
+              "radial-gradient(ellipse 80% 60% at 50% 80%, rgba(212, 175, 55, 0.07) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 80% 20%, rgba(196, 30, 30, 0.06) 0%, transparent 70%)",
           }}
         />
         <div className="absolute inset-0 z-0 pointer-events-none hidden sm:block">
           <LightPillar
-            topColor="#C5CDD6"
-            bottomColor="#DC2B1B"
+            topColor="#F0D78C"
+            bottomColor="#C41E1E"
             intensity={0.55}
             rotationSpeed={1.8}
             glowAmount={0.001}
@@ -219,7 +219,7 @@ export default function Hero() {
           className="absolute inset-0 opacity-[0.04] hidden md:block"
           style={{
             backgroundImage:
-              "linear-gradient(var(--steel-dark) 1px, transparent 1px), linear-gradient(90deg, var(--steel-dark) 1px, transparent 1px)",
+              "linear-gradient(rgba(212, 175, 55, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.06) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -229,14 +229,14 @@ export default function Hero() {
             className="cursor-mask absolute inset-0 opacity-40 pointer-events-none hidden md:block"
             style={{
               background:
-                "radial-gradient(ellipse 70% 50% at 60% 50%, rgba(156, 168, 180, 0.12) 0%, transparent 70%)",
+                "radial-gradient(ellipse 70% 50% at 60% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%)",
             }}
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/20" />
       </div>
 
-      <div className="absolute top-24 sm:top-28 lg:top-32 right-4 sm:right-6 lg:right-8 z-20 pointer-events-none">
+      <div className="absolute top-28 sm:top-32 lg:top-36 right-4 sm:right-6 lg:right-8 z-20 pointer-events-none hidden lg:block">
         <RegionFlags variant="hero" />
       </div>
 
@@ -245,7 +245,7 @@ export default function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-x-8 lg:gap-x-10 xl:gap-x-12 gap-y-2 sm:gap-y-6 lg:gap-y-8 items-start">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 lg:col-start-1 lg:row-start-1">
               <div className="hidden sm:block h-px w-6 sm:w-8 bg-[var(--gold)] shrink-0" />
-              <span className="text-[var(--gold)] text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.4em] uppercase font-semibold font-[var(--font-body)] text-center sm:text-left leading-snug">
+              <span className="text-[var(--gold)] text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.4em] uppercase font-semibold font-[var(--font-body)] text-center sm:text-left leading-snug max-w-[min(100%,16rem)] sm:max-w-none">
                 Private Security &amp; Protection Agency
               </span>
               <div className="hidden sm:block h-px w-6 sm:w-8 bg-[var(--gold)] shrink-0" />
@@ -258,15 +258,18 @@ export default function Hero() {
               <DepthCarousel {...carouselProps} verticalAlign="top" />
             </div>
 
-            <div className="lg:col-start-1 lg:row-start-2 min-w-0">
+            <div className="lg:col-start-1 lg:row-start-2 min-w-0 max-md:pr-0">
               <h1 className="sr-only">Elite Protection. Unmatched Presence.</h1>
-              <div className="overflow-visible flex justify-center sm:justify-start sm:-ml-2 -mb-1" aria-hidden="true">
+              <div
+                className="overflow-visible flex justify-center sm:justify-start sm:-ml-2 -mb-1 max-md:px-1"
+                aria-hidden="true"
+              >
                 <TrueFocus
                   sentence="Elite Protection Unmatched Presence"
                   manualMode={false}
                   blurAmount={3}
-                  borderColor="#DC2B1B"
-                  glowColor="rgba(220, 43, 27,0.75)"
+                  borderColor="#D4AF37"
+                  glowColor="rgba(212, 175, 55, 0.65)"
                   animationDuration={1.4}
                   pauseBetweenAnimations={1.2}
                   onWordChange={setActiveWordIndex}
@@ -296,7 +299,7 @@ export default function Hero() {
                 </ShimmerButton>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 border border-white/20 text-[var(--cream)] text-sm font-bold tracking-widest uppercase rounded-sm hover:border-[var(--gold)]/60 hover:text-[var(--gold)] transition-all duration-300 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 btn-gold-outline text-sm font-bold tracking-widest uppercase rounded-sm w-full sm:w-auto"
                 >
                   Our Services
                   <span className="text-[var(--gold)]">→</span>

@@ -1,55 +1,62 @@
 @import "tailwindcss";
 
-/* ─── ARMOURIXX Brand CSS Variables ───────────────────────────── */
+/* ─── ARMOURIXX Luxury Theme — Black · Gold · Red ─────────────── */
 :root {
-  /* Client brand palette */
-  --brand-red:        #DC2B1B;
-  --brand-red-light:  #F04A3C;
-  --brand-red-dark:   #A91F14;
-  --brand-red-muted:  #5C1210;
-  --brand-black:      #000000;
-  --brand-rgb:        220, 43, 27;
+  /* Brand red — CTAs, urgency, power accents */
+  --brand-red:        #C41E1E;
+  --brand-red-light:  #E8352E;
+  --brand-red-dark:   #8B1515;
+  --brand-red-muted:  #4A0E0E;
+  --brand-rgb:        196, 30, 30;
 
-  /* Secondary — steel / tactical silver */
-  --steel:            #9CA8B4;
-  --steel-light:      #D1D8E0;
-  --steel-dark:       #6B7785;
-  --steel-rgb:        156, 168, 180;
+  /* Premium gold — borders, typography, luxury highlights */
+  --gold:             #D4AF37;
+  --gold-light:       #F0D78C;
+  --gold-dark:        #9A7B1A;
+  --gold-muted:       #5C4A14;
+  --gold-rgb:         212, 175, 55;
 
-  /* Cool slate — section depth & variety */
-  --slate:            #0E1014;
-  --slate-2:          #141820;
-  --slate-3:          #1A1F28;
+  /* Semantic aliases */
+  --accent:           var(--brand-red);
+  --accent-light:     var(--brand-red-light);
+  --accent-dark:      var(--brand-red-dark);
 
-  /* Warm neutral highlights */
+  /* Tactical silver — secondary UI chrome */
+  --steel:            #A8A49C;
+  --steel-light:      #D4CFC4;
+  --steel-dark:       #6E6A62;
+  --steel-rgb:        168, 164, 156;
+
+  /* Rich black depth layers */
+  --ink:              #050505;
+  --ink-2:            #0A0A0C;
+  --ink-3:            #101014;
+  --ink-4:            #16161C;
+  --ink-5:            #1C1C24;
+
+  --slate:            #0E0E12;
+  --slate-2:          #14141A;
+  --slate-3:          #1A1A22;
+
+  /* Warm neutrals */
   --sand:             #E8E4DF;
-  --sand-muted:       #9C9893;
+  --sand-muted:       #8A8580;
+  --champagne:        #FAF6EE;
 
-  /* Primary accent (CTAs, featured, logo) */
-  --gold:        var(--brand-red);
-  --gold-light:  var(--brand-red-light);
-  --gold-dark:   var(--brand-red-dark);
-  --gold-muted:  var(--brand-red-muted);
+  /* Typography */
+  --cream:            #F8F6F2;
+  --cream-muted:      #9C9890;
 
-  /* Ink / dark palette */
-  --ink:         #000000;
-  --ink-2:       #08090C;
-  --ink-3:       var(--slate);
-  --ink-4:       var(--slate-2);
-  --ink-5:       var(--slate-3);
-
-  /* Light text */
-  --cream:       #F5F4F2;
-  --cream-muted: #A8ADB5;
-
-  /* Borders & glass — neutral by default, red on accent surfaces */
-  --glass-bg:       rgba(8, 9, 12, 0.75);
-  --glass-border:   rgba(156, 168, 180, 0.14);
-  --glass-gold:     rgba(220, 43, 27, 0.07);
-  --border-subtle:  rgba(156, 168, 180, 0.12);
-  --border-accent:  rgba(220, 43, 27, 0.35);
-  --glow-neutral:   rgba(156, 168, 180, 0.06);
-  --glow-accent:    rgba(156, 168, 180, 0.1);
+  /* Surfaces & glass — gold-tinted luxury chrome */
+  --glass-bg:         rgba(8, 8, 10, 0.88);
+  --glass-border:     rgba(212, 175, 55, 0.14);
+  --glass-gold:       rgba(212, 175, 55, 0.07);
+  --border-subtle:    rgba(212, 175, 55, 0.1);
+  --border-accent:    rgba(212, 175, 55, 0.38);
+  --border-red:       rgba(196, 30, 30, 0.42);
+  --glow-gold:        rgba(212, 175, 55, 0.18);
+  --glow-red:         rgba(196, 30, 30, 0.14);
+  --glow-neutral:     rgba(168, 164, 156, 0.06);
 
   --background: var(--ink);
   --foreground: var(--cream);
@@ -71,10 +78,10 @@
   --font-display:     "Bebas Neue", sans-serif;
   --font-body:        "Inter", sans-serif;
 
-  /* Custom keyframes */
   --animate-float:       float 4s ease-in-out infinite;
   --animate-float-slow:  float 6s ease-in-out infinite;
   --animate-shimmer:     shimmer 2.5s linear infinite;
+  --animate-shimmer-gold: shimmer-gold 3s linear infinite;
   --animate-scan:        scan-line 8s linear infinite;
   --animate-pulse-gold:  pulse-gold 2s ease-in-out infinite;
   --animate-marquee:     marquee 30s linear infinite;
@@ -88,13 +95,17 @@
     0%   { background-position: -200% center; }
     100% { background-position: 200% center; }
   }
+  @keyframes shimmer-gold {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
   @keyframes scan-line {
     0%   { transform: translateY(-100%); }
     100% { transform: translateY(100vh); }
   }
   @keyframes pulse-gold {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(220, 43, 27, 0.45); }
-    50%       { box-shadow: 0 0 0 12px rgba(220, 43, 27, 0); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+    50%       { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
   }
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -135,7 +146,11 @@ html {
 }
 
 body {
-  background: var(--ink);
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(ellipse 100% 60% at 50% -10%, rgba(212, 175, 55, 0.055) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 20%, rgba(196, 30, 30, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 0% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 45%);
   color: var(--cream);
   font-family: "Inter", sans-serif;
   min-height: 100vh;
@@ -143,7 +158,6 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Prevent horizontal overflow from wide children */
 main {
   overflow-x: clip;
 }
@@ -155,13 +169,11 @@ svg {
   height: auto;
 }
 
-/* Consistent page gutters */
 .page-x {
   padding-left: clamp(1rem, 4vw, 1.5rem);
   padding-right: clamp(1rem, 4vw, 1.5rem);
 }
 
-/* Touch-friendly minimum tap targets for interactive controls */
 @media (pointer: coarse) {
   button:not(.no-min-tap),
   [role="button"]:not(.no-min-tap) {
@@ -169,7 +181,6 @@ svg {
   }
 }
 
-/* Body scroll lock when mobile nav is open */
 body.nav-open {
   overflow: hidden;
   touch-action: none;
@@ -185,21 +196,26 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--ink-2); }
-::-webkit-scrollbar-thumb { background: var(--steel-dark); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--brand-red-dark); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-dark), var(--gold));
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
 
-/* ─── Selection ──────────────────────────────────────────────── */
 ::selection {
-  background: rgba(220, 43, 27, 0.35);
+  background: rgba(212, 175, 55, 0.28);
   color: var(--cream);
 }
 
-/* ─── Glassmorphism Utility ──────────────────────────────────── */
+/* ─── Glass & luxury surfaces ──────────────────────────────── */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
   border: 1px solid var(--glass-border);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(212, 175, 55, 0.06);
 }
 
 .glass-gold {
@@ -207,39 +223,211 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-accent);
+  box-shadow: 0 0 24px var(--glow-gold);
 }
 
-/* ─── Brand gradient text (red — headlines & logo) ───────────── */
+.nav-luxury {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 12, 14, 0.97) 0%,
+    rgba(5, 5, 5, 0.94) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    0 4px 40px rgba(0, 0, 0, 0.45),
+    inset 0 -1px 0 rgba(212, 175, 55, 0.2);
+}
+
+.nav-luxury--scrolled {
+  box-shadow:
+    0 8px 48px rgba(0, 0, 0, 0.55),
+    inset 0 -1px 0 rgba(212, 175, 55, 0.28);
+}
+
+/* Metallic gold plate — navbar logo mount */
+.logo-gold-plate {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 5px;
+  border-radius: 6px;
+  background: linear-gradient(
+    155deg,
+    #faf0c8 0%,
+    #e8c872 18%,
+    #d4af37 38%,
+    #a67c00 58%,
+    #c9a227 78%,
+    #f5e6a8 100%
+  );
+  border: 1px solid rgba(255, 240, 200, 0.65);
+  box-shadow:
+    inset 0 2px 5px rgba(255, 255, 255, 0.42),
+    inset 0 -3px 8px rgba(80, 55, 10, 0.45),
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(120, 90, 20, 0.55);
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.logo-gold-plate--nav {
+  padding: 8px;
+  border-radius: 9px;
+}
+
+.logo-gold-plate--nav::after {
+  inset: 5px;
+  border-radius: 6px;
+}
+
+.logo-gold-plate--nav .logo-gold-plate__inner {
+  padding: 6px;
+  border-radius: 5px;
+}
+
+@media (min-width: 640px) {
+  .logo-gold-plate--nav {
+    padding: 9px;
+  }
+
+  .logo-gold-plate--nav .logo-gold-plate__inner {
+    padding: 8px;
+  }
+}
+
+.logo-gold-plate::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 4px;
+  border: 1px solid rgba(60, 45, 12, 0.35);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.logo-gold-plate__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+  background: linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.08) 38%,
+    transparent 52%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+.logo-gold-plate__inner {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 252, 245, 0.92) 0%,
+    rgba(245, 235, 210, 0.88) 100%
+  );
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.group:hover .logo-gold-plate {
+  border-color: rgba(255, 248, 220, 0.85);
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.48),
+    inset 0 -3px 8px rgba(80, 55, 10, 0.4),
+    0 6px 22px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(212, 175, 55, 0.28),
+    0 0 0 1px rgba(212, 175, 55, 0.65);
+}
+
+/* ─── Gradient text utilities ──────────────────────────────── */
 .text-gradient-gold {
-  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 45%, var(--gold) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--gold-dark) 0%,
+    var(--gold-light) 38%,
+    var(--gold) 62%,
+    var(--gold-dark) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ─── Steel gradient text (stats, secondary emphasis) ────────── */
 .text-gradient-steel {
-  background: linear-gradient(135deg, var(--steel-dark) 0%, var(--steel-light) 50%, var(--sand) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--gold-dark) 0%,
+    var(--gold-light) 45%,
+    var(--champagne) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ─── Mixed accent gradient (red + silver) ───────────────────── */
 .text-gradient-accent {
-  background: linear-gradient(135deg, var(--steel-light) 0%, var(--cream) 40%, var(--gold-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--gold-light) 0%,
+    var(--cream) 35%,
+    var(--brand-red-light) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ─── Alternating section backgrounds ────────────────────────── */
+.text-gradient-luxury {
+  background: linear-gradient(
+    90deg,
+    var(--gold-dark) 0%,
+    var(--gold-light) 25%,
+    var(--cream) 50%,
+    var(--gold-light) 75%,
+    var(--gold-dark) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Section backgrounds ──────────────────────────────────── */
 .section-slate {
   background: linear-gradient(180deg, var(--slate) 0%, var(--ink) 100%);
 }
 
 .section-ink {
   background: var(--ink);
+}
+
+.section-luxury {
+  background:
+    linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+  position: relative;
+}
+
+.section-luxury::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 50% at 50% 0%,
+    rgba(212, 175, 55, 0.04) 0%,
+    transparent 65%
+  );
 }
 
 /* ─── Grain overlay ─────────────────────────────────────────── */
@@ -249,17 +437,15 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   pointer-events: none;
   z-index: 999;
-  opacity: 0.025;
+  opacity: 0.028;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
 }
 
-/* ─── Section base spacing ───────────────────────────────────── */
 .section-pad {
   padding-top: clamp(3rem, 8vw, 8rem);
   padding-bottom: clamp(3rem, 8vw, 8rem);
 }
 
-/* ─── Responsive display headings ────────────────────────────── */
 .heading-display {
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(2.25rem, 7vw, 4.5rem);
@@ -274,17 +460,35 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.05em;
 }
 
-/* ─── Scan line accent ───────────────────────────────────────── */
+/* ─── Accent lines ───────────────────────────────────────────── */
 .scan-line {
   position: absolute;
   left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(156, 168, 180, 0.25), rgba(220, 43, 27, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.35),
+    rgba(196, 30, 30, 0.25),
+    rgba(212, 175, 55, 0.35),
+    transparent
+  );
   animation: var(--animate-scan);
   pointer-events: none;
 }
 
-/* ─── Reduced motion ─────────────────────────────────────────── */
+.luxury-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.45) 25%,
+    rgba(196, 30, 30, 0.35) 50%,
+    rgba(212, 175, 55, 0.45) 75%,
+    transparent 100%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -294,7 +498,6 @@ h1, h2, h3, h4, h5, h6 {
   html { scroll-behavior: auto; }
 }
 
-/* ─── Hero cursor mask ───────────────────────────────────────── */
 .cursor-mask {
   --mask-x: 50%;
   --mask-y: 50%;
@@ -302,22 +505,47 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-mask-image: radial-gradient(circle 150px at var(--mask-x) var(--mask-y), black 0%, transparent 100%);
 }
 
-/* ─── Shimmer button (brand red) ─────────────────────────────── */
+/* ─── CTA button — red with gold edge glow ───────────────────── */
 .shimmer-btn {
   background: linear-gradient(
     120deg,
-    var(--gold-dark) 0%,
-    var(--gold-light) 40%,
-    var(--gold) 50%,
-    var(--gold-light) 60%,
-    var(--gold-dark) 100%
+    var(--accent-dark) 0%,
+    var(--accent-light) 40%,
+    var(--accent) 50%,
+    var(--accent-light) 60%,
+    var(--accent-dark) 100%
   );
   background-size: 300% auto;
   animation: var(--animate-shimmer);
   color: #ffffff;
+  box-shadow:
+    0 4px 20px rgba(196, 30, 30, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 0 1px rgba(212, 175, 55, 0.25);
 }
 
-/* ─── Animated beam line ─────────────────────────────────────── */
+.shimmer-btn:hover {
+  box-shadow:
+    0 6px 28px rgba(196, 30, 30, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 0 1px rgba(212, 175, 55, 0.45),
+    0 0 24px rgba(212, 175, 55, 0.15);
+}
+
+/* ─── Gold outline button ───────────────────────────────────── */
+.btn-gold-outline {
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: var(--gold-light);
+  transition: all 0.3s ease;
+}
+
+.btn-gold-outline:hover {
+  border-color: var(--gold);
+  color: var(--cream);
+  background: rgba(212, 175, 55, 0.08);
+  box-shadow: 0 0 20px var(--glow-gold);
+}
+
 .beam-line {
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
@@ -327,7 +555,6 @@ h1, h2, h3, h4, h5, h6 {
   to { stroke-dashoffset: 0; }
 }
 
-/* ─── Industries marquee (dual-row auto scroll) ─────────────── */
 @keyframes industries-marquee-ltr {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
