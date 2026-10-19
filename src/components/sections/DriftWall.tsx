@@ -6,21 +6,21 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import BlurFadeIn from "@/components/ui/BlurFadeIn";
 
 const driftItems = [
-  { image: encodeURI("/images/Armed Security Guards.jpg"), title: "Guard Patrol" },
-  { image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop", title: "Corporate Security" },
-  { image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop", title: "CCTV Control Room" },
-  { image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop", title: "Event Security" },
-  { image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&h=400&fit=crop", title: "Corporate Detail" },
-  { image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&h=400&fit=crop", title: "Night Operations" },
-  { image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop", title: "Office Security" },
-  { image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&h=400&fit=crop", title: "Surveillance Systems" },
-  { image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", title: "VIP Protection" },
-  { image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop", title: "Rapid Response" },
-  { image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop", title: "High-Rise Security" },
-  { image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop", title: "Tech Operations" },
-  { image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop", title: "Gate Management" },
-  { image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop", title: "Team Coordination" },
-  { image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop", title: "Command Center" },
+  { image: "/images/optimized/drift/Close-Up-of-Security-Officer-with-Body-Camera.jpg", title: "Guard Patrol" },
+  { image: "/images/optimized/drift/Corporate-and-Commercial-2.jpg", title: "Corporate Security" },
+  { image: "/images/optimized/drift/survillenceRoom.jpg", title: "CCTV Control Room" },
+  { image: "/images/optimized/drift/event-security.jpg", title: "Event Security" },
+  { image: "/images/optimized/drift/Corporate-and-Commercial.jpg", title: "Corporate Detail" },
+  { image: "/images/optimized/drift/Nightclub-Security-at-the-Velvet-Rope-1.jpg", title: "Night Operations" },
+  { image: "/images/optimized/drift/security-guard-workspace-2.jpg", title: "Office Security" },
+  { image: "/images/optimized/drift/male-security-guard-using-radio-transmitter-surveillance-room.jpg", title: "Surveillance Systems" },
+  { image: "/images/optimized/drift/Celebrity-Arrival-with-Security-Escort.jpg", title: "VIP Protection" },
+  { image: "/images/optimized/drift/Urban-Security-Rapid-Response.jpg", title: "Rapid Response" },
+  { image: "/images/optimized/drift/Executive-Protection-at-Glass-Tower.jpg", title: "High-Rise Security" },
+  { image: "/images/optimized/drift/Modern-Security-Control-Room-Guard.jpg", title: "Tech Operations" },
+  { image: "/images/optimized/drift/Guarding-the-Industrial-Gate-3.jpg", title: "Gate Management" },
+  { image: "/images/optimized/drift/Corporate-Security-Formation.jpg", title: "Team Coordination" },
+  { image: "/images/optimized/drift/Strategic-Security-Planning-Meeting.jpg", title: "Command Center" },
 ];
 
 export default function DriftWallSection() {
@@ -74,6 +74,7 @@ export default function DriftWallSection() {
           pauseOnHover={false}
           grayscale={false}
         />
+        <div className="absolute inset-0 bg-black/55 sm:hidden pointer-events-none z-0" aria-hidden="true" />
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
           <div className="w-full max-w-[90vw] sm:max-w-[800px] h-[280px] sm:h-[400px] bg-black/75 blur-[60px] sm:blur-[80px] rounded-full" />
         </div>

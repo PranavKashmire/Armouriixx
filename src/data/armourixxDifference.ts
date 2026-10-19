@@ -27,8 +27,7 @@ export const armourixxDifference: DifferencePillar[] = [
       "We don't fill posts with whoever is available. Every guard is vetted, trained, and re-certified against operational benchmarks.",
     chapter: "Pillar I — Human Excellence",
     proof: "Background-verified · Protocol-certified",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1400&h=900&fit=crop&q=85",
+    image: "/images/optimized/Corporate-Security-Formation.jpg",
     imageAlt: "Professional security personnel in elite operational readiness",
     gridClass: "lg:col-span-12",
     minHeight: "min-h-[400px] lg:min-h-[480px]",
@@ -45,8 +44,7 @@ export const armourixxDifference: DifferencePillar[] = [
       "Among the few firms in Maharashtra running body-cams, GPS checkpoint verification, and live guard monitoring as standard — not premium add-ons.",
     chapter: "Pillar II — Digital Edge",
     proof: "Body-cam · GPS checkpoints · Live monitoring",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&q=85",
+    image: "/images/optimized/Close-Up-of-Security-Officer-with-Body-Camera.jpg",
     imageAlt: "Advanced security monitoring and surveillance technology",
     gridClass: "lg:col-span-12",
     minHeight: "min-h-[400px] lg:min-h-[460px]",
@@ -62,8 +60,7 @@ export const armourixxDifference: DifferencePillar[] = [
       "When something happens, you don't get a verbal report. You get timestamped, exportable evidence packages.",
     chapter: "Pillar III — Transparent Ops",
     proof: "Digital logs · Evidence export",
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop&q=85",
+    image: "/images/optimized/survillenceRoom.jpg",
     imageAlt: "Digital incident documentation and accountability systems",
     gridClass: "lg:col-span-12",
     minHeight: "min-h-[400px] lg:min-h-[460px]",
@@ -79,8 +76,7 @@ export const armourixxDifference: DifferencePillar[] = [
       "Pre-positioned units, live dispatch, and SLAs measured in minutes — not vague promises of 'quick arrival.'",
     chapter: "Pillar IV — Speed & Precision",
     proof: "Sub-15 min SLA · GPS-tracked units",
-    image:
-      encodeURI("/images/Why Should Hire Security Services.jpg"),
+    image: "/images/optimized/Urban-Security-Rapid-Response-1.jpg",
     imageAlt: "Security officer coordinating a rapid response by radio",
     gridClass: "lg:col-span-12",
     minHeight: "min-h-[400px] lg:min-h-[460px]",
@@ -96,8 +92,7 @@ export const armourixxDifference: DifferencePillar[] = [
       "Hospital protocols differ from data-center protocols. We adapt the playbook — never the standard of execution.",
     chapter: "Pillar V — Sector Mastery",
     proof: "12 industry verticals",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop&q=85",
+    image: "/images/optimized/Armourixx-Multi-Sector-Security-Guard.jpg",
     imageAlt: "Security across corporate and industrial environments",
     gridClass: "lg:col-span-12",
     minHeight: "min-h-[400px] lg:min-h-[460px]",
@@ -113,8 +108,7 @@ export const armourixxDifference: DifferencePillar[] = [
       "We don't sell packages. We assess, design, deploy, and report around how your organization actually operates.",
     chapter: "Pillar VI — Partnership",
     proof: "Bespoke risk assessments",
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop&q=85",
+    image: "/images/optimized/Why-Should-Hire-Security-Services.jpg",
     imageAlt: "Client security strategy consultation meeting",
     gridClass: "lg:col-span-12",
     minHeight: "min-h-[400px] lg:min-h-[460px]",

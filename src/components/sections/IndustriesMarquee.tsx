@@ -44,7 +44,7 @@ function IndustryCard({
   return (
     <div
       className="group flex-shrink-0 flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-sm border border-[var(--border-subtle)] bg-[var(--ink-3)]/40 hover:border-[var(--border-accent)] transition-all duration-400"
-      style={{ width: "clamp(200px, 32vw, 260px)" }}
+      style={{ width: "clamp(230px, 32vw, 260px)" }}
     >
       <div
         className="w-9 h-9 rounded-sm flex items-center justify-center shrink-0 border border-[var(--border-subtle)] text-[var(--gold)]/70 group-hover:text-[var(--gold-light)] group-hover:border-[var(--border-accent)] transition-colors"
@@ -53,11 +53,11 @@ function IndustryCard({
       </div>
       <div className="min-w-0">
         <p
-          className="font-[var(--font-display)] text-sm text-[var(--cream)] tracking-wide leading-tight truncate"
+          className="font-[var(--font-display)] text-sm text-[var(--cream)] tracking-wide leading-tight line-clamp-2"
         >
           {name}
         </p>
-        <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-[var(--gold)]/50 mt-0.5">
+        <p className="text-[10px] sm:text-[8px] font-bold uppercase tracking-[0.18em] text-[var(--gold)]/60 mt-0.5">
           {tag}
         </p>
       </div>

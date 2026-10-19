@@ -228,14 +228,15 @@
 }
 
 @media (min-width: 1024px) {
-  .diff-card--horizontal .diff-card__content-inner {
+  .diff-card.diff-card--horizontal .diff-card__content-inner {
     background: transparent;
     border-color: transparent;
     backdrop-filter: none;
     padding: 0;
   }
 
-  .diff-card--horizontal.is-active .diff-card__content-inner {
+  .diff-card.diff-card--horizontal.is-active .diff-card__content-inner {
+    background: transparent;
     border-color: transparent;
   }
 }
@@ -260,13 +261,13 @@
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(220, 43, 27, 0.5);
+  color: rgba(240, 70, 58, 0.95);
   margin-bottom: 0.75rem;
   transition: color 0.8s ease;
 }
 
 .diff-card.is-active .diff-card__chapter {
-  color: rgba(220, 43, 27, 0.8);
+  color: rgba(240, 70, 58, 1);
 }
 
 .diff-card__meta {
@@ -280,7 +281,7 @@
   font-size: 8px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(220, 43, 27, 0.45);
+  color: rgba(240, 70, 58, 0.9);
 }
 
 .diff-card__proof {
@@ -297,7 +298,7 @@
   font-size: clamp(1.05rem, 2.5vw, 1.4rem);
   letter-spacing: 0.05em;
   line-height: 1.15;
-  color: rgba(240, 74, 60, 0.72);
+  color: rgba(240, 70, 58, 1);
   margin: 0 0 0.65rem;
   transition: color 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -321,7 +322,7 @@
 }
 
 .diff-card.is-active .diff-card__number {
-  color: rgba(220, 43, 27, 0.26);
+  color: rgba(240, 70, 58, 0.5);
 }
 
 .diff-card__number span {
@@ -395,7 +396,7 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(220, 43, 27, 0.4);
+  color: rgba(240, 70, 58, 0.95);
   transition: color 0.8s ease, gap 0.8s ease;
 }
 
@@ -437,6 +438,10 @@
 
 /* Mobile — stacked cards without breaking desktop layout */
 @media (max-width: 1023px) {
+  .diff-card__image {
+    object-position: center 12%;
+  }
+
   .diff-card--horizontal .diff-card__inner {
     min-height: auto;
   }
@@ -446,8 +451,8 @@
     flex: none;
     width: 100%;
     min-height: 0;
-    aspect-ratio: 16 / 10;
-    max-height: min(42vh, 220px);
+    aspect-ratio: 4 / 3;
+    max-height: min(56vh, 380px);
   }
 
   .diff-card--hero .diff-card__media {

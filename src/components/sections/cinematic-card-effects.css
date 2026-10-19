@@ -251,21 +251,21 @@
 
 .cinema-story-line__label {
   font-family: var(--font-body);
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(220, 43, 27, 0.4);
+  color: rgba(240, 70, 58, 0.85);
   transition: color 0.5s ease;
 }
 
 .is-active .cinema-story-line__label,
 .is-expanded .cinema-story-line__label {
-  color: rgba(220, 43, 27, 0.75);
+  color: rgba(240, 70, 58, 1);
 }
 
 /* Stagger reveals */
 .cinema-reveal {
-  opacity: 0.72;
+  opacity: 0.95;
   transform: translateY(6px);
   transition:
     opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
@@ -310,7 +310,7 @@
 
 /* Feature stagger */
 .cinema-feature-stagger {
-  opacity: 0.55;
+  opacity: 0.85;
   transform: translateX(-4px);
   transition:
     opacity 0.45s ease,

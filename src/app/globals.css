@@ -181,11 +181,16 @@ svg {
   }
 }
 
-/* Phones — keep micro-labels legible (desktop sizes untouched) */
-@media (max-width: 639px) {
+/* Phones & tablets — keep micro-labels legible (desktop sizes untouched) */
+@media (max-width: 1023px) {
   html .text-\[7px\],
   html .text-\[8px\],
   html .text-\[9px\],
+  html .sm\:text-\[8px\],
+  html .sm\:text-\[9px\],
+  html .cap-card__ops,
+  html .cap-card__status-label,
+  html .diff-card__proof,
   html .text-\[0\.6rem\],
   html .cinema-story-line__label,
   html .cap-card__hero-badge,
@@ -265,6 +270,12 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow:
     0 4px 40px rgba(0, 0, 0, 0.45),
     inset 0 -1px 0 rgba(212, 175, 55, 0.2);
+}
+
+@media (max-width: 1023px) {
+  .nav-luxury {
+    background: linear-gradient(180deg, rgba(12, 12, 14, 0.995) 0%, rgba(5, 5, 5, 0.99) 100%);
+  }
 }
 
 .nav-luxury--scrolled {

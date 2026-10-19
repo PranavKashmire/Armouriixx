@@ -98,14 +98,14 @@ function StandardCard({
 }) {
   return (
     <div
-      className="group relative flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 rounded-md glass border border-[var(--glass-border)] shrink-0 hover:border-[var(--gold)]/50 hover:bg-[var(--ink-3)] transition-all duration-300 shadow-md cursor-default w-[240px] sm:w-[280px]"
+      className="group relative flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 rounded-md glass border border-[var(--glass-border)] shrink-0 hover:border-[var(--gold)]/50 hover:bg-[var(--ink-3)] transition-all duration-300 shadow-md cursor-default w-[260px] sm:w-[280px]"
     >
       <div className="w-11 h-11 rounded-sm bg-[var(--ink-4)] border border-[var(--gold)]/20 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-[var(--gold)]/60 transition-all duration-300 shadow-inner">
         {icon}
       </div>
 
       <div className="flex-1 min-w-0">
-        <span className="text-xs font-bold font-[var(--font-display)] uppercase tracking-wider text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors duration-300 truncate block">
+        <span className="text-xs font-bold font-[var(--font-display)] uppercase tracking-wider text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors duration-300 line-clamp-2 leading-snug">
           {title}
         </span>
         <p className="text-[10px] text-[var(--cream-muted)]/70 font-[var(--font-body)] truncate mt-1">

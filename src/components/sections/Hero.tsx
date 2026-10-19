@@ -267,7 +267,7 @@ export default function Hero() {
                 <TrueFocus
                   sentence="Elite Protection Unmatched Presence"
                   manualMode={false}
-                  blurAmount={3}
+                  blurAmount={isTouch ? 1.2 : 3}
                   borderColor="#D4AF37"
                   glowColor="rgba(212, 175, 55, 0.65)"
                   animationDuration={1.4}

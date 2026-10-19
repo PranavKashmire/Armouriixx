@@ -33,7 +33,7 @@ export default function HeroMobileCarousel({
           src={item.image}
           alt={item.alt}
           fill
-          className="object-cover"
+          className="object-cover object-[center_15%]"
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority={safeIndex === 0}
         />
