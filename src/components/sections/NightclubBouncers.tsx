@@ -42,14 +42,14 @@ export default function NightclubBouncers() {
         </BlurFadeIn>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch mb-10 sm:mb-12">
-          <BlurFadeIn className="lg:col-span-7">
-            <div className="nightclub-bouncers__hero relative aspect-[16/10] sm:aspect-[16/9] lg:min-h-[420px] rounded-sm overflow-hidden border border-[var(--glass-border)]">
+          <BlurFadeIn className="lg:col-span-5">
+            <div className="nightclub-bouncers__hero relative aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none rounded-sm overflow-hidden border border-[var(--glass-border)]">
               <Image
                 src={featured.src}
                 alt={featured.alt}
                 fill
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                className="object-cover transition-opacity duration-700"
+                sizes="(max-width: 1024px) 448px, 40vw"
+                className="object-cover object-top transition-opacity duration-700"
                 priority
               />
               <div className="nightclub-bouncers__hero-overlay" aria-hidden="true" />
@@ -71,7 +71,7 @@ export default function NightclubBouncers() {
             </div>
           </BlurFadeIn>
 
-          <BlurFadeIn delay={100} className="lg:col-span-5 flex flex-col">
+          <BlurFadeIn delay={100} className="lg:col-span-7 flex flex-col">
             <div className="nightclub-bouncers__panel h-full flex flex-col">
               <p className="font-[var(--font-display)] text-2xl sm:text-3xl text-[var(--gold-light)] tracking-wide mb-4">
                 {content.tagline}
@@ -122,7 +122,7 @@ export default function NightclubBouncers() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {content.gallery.map((image, i) => (
               <button
-                key={image.src}
+                key={`${i}-${image.src}`}
                 type="button"
                 onClick={() => setActiveImage(i)}
                 className={cn(

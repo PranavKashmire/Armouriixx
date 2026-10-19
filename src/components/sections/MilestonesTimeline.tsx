@@ -16,8 +16,8 @@ const milestones = [
     story:
       "Akshay Sanjay Bhote established ARMOURIXX Security in Maharashtra with a bold conviction — that elite protection should be accessible, accountable, and always a step ahead of the threat. What started as a vision became Maharashtra's fastest-growing professional security firm.",
     stat: { value: "Day 1", label: "of a legacy" },
-    image: "https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=900&q=80",
-    alt: "Handshake founding moment",
+    image: "/images/optimized/Armourixx-Multi-Sector-Security-Guard.jpg",
+    alt: "ARMOURIXX multi-sector security guard",
   },
   {
     index: 1,
@@ -28,8 +28,8 @@ const milestones = [
     story:
       "Within weeks of inception, ARMOURIXX secured its first corporate security mandate in Pune — validating the founder's vision. A demanding enterprise environment required immaculate execution, and ARMOURIXX delivered, earning its first long-term retainer.",
     stat: { value: "#1", label: "corporate mandate" },
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80",
-    alt: "Corporate office building",
+    image: "/images/optimized/survillenceRoom.jpg",
+    alt: "ARMOURIXX surveillance control room",
   },
   {
     index: 2,
@@ -40,8 +40,8 @@ const milestones = [
     story:
       "ARMOURIXX rapidly grew its force to 50+ certified, background-verified security personnel — each trained to the firm's non-negotiable operational standards. Every hire undergoes rigorous vetting, physical fitness assessment, and situational awareness training before deployment.",
     stat: { value: "50+", label: "elite guards" },
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=80",
-    alt: "Security team in formation",
+    image: "/images/optimized/Corporate-Security-Formation.jpg",
+    alt: "ARMOURIXX corporate security team in formation",
   },
   {
     index: 3,
@@ -52,8 +52,8 @@ const milestones = [
     story:
       "ARMOURIXX became one of Maharashtra's first security firms to fully integrate body-cam and GPS tracking across all field deployments. Real-time monitoring, timestamped reporting, and digital accountability turned every shift into a transparent, auditable operation.",
     stat: { value: "100%", label: "tracked shifts" },
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=900&q=80",
-    alt: "Technology monitoring dashboard",
+    image: "/images/optimized/manned.jpg",
+    alt: "ARMOURIXX manned guarding with body-cam",
   },
   {
     index: 4,
@@ -64,8 +64,8 @@ const milestones = [
     story:
       "The next frontier: ARMOURIXX is positioned to extend its elite security footprint across all major Indian cities. With established operational frameworks, technology infrastructure, and a rapidly growing client portfolio, the PAN India mandate is within reach.",
     stat: { value: "∞", label: "cities to protect" },
-    image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900&q=80",
-    alt: "India map aerial view",
+    image: "/images/optimized/Guarding-Indias-Connected-Horizon.jpg",
+    alt: "Guarding India’s connected horizon",
   },
 ];
 

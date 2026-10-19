@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import BlurFadeIn from "@/components/ui/BlurFadeIn";
+
+const coFounderPortrait = encodeURI("/images/optimized/IMG_5017-2.jpg");
 
 const paragraphs = [
   "Piyush Pawar is the Co-Founder and Director of ARMOURIXX Security. He holds a Bachelor\u2019s degree in Business Administration \u2013 International Business from Kingston University, London.",
@@ -59,8 +62,14 @@ export default function CoFounderNote() {
             <div className="w-full max-w-[280px] md:max-w-none">
               <div className="relative p-[1px] rounded-sm bg-gradient-to-br from-[var(--gold)]/40 via-[var(--gold)]/10 to-transparent">
                 <div className="rounded-sm bg-[var(--ink-3)] border border-[var(--glass-border)] p-6 sm:p-8 flex flex-col items-center text-center">
-                  <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-sm bg-[var(--ink-4)] border-2 border-[var(--gold)]/30 flex items-center justify-center text-[var(--gold)] font-bold text-4xl sm:text-5xl mb-5 font-[var(--font-display)] shadow-[inset_0_0_24px_rgba(220, 43, 27,0.06)]">
-                    P
+                  <div className="relative w-full max-w-[220px] aspect-[4/5] rounded-sm bg-[var(--ink-4)] border-2 border-[var(--gold)]/30 overflow-hidden mb-5">
+                    <Image
+                      src={coFounderPortrait}
+                      alt="Mr. Piyush Pawar, Co-Founder & Director"
+                      fill
+                      className="object-cover object-top"
+                      sizes="220px"
+                    />
                   </div>
                   <p className="text-[var(--cream)] font-bold tracking-wider text-sm uppercase">
                     Piyush Pawar

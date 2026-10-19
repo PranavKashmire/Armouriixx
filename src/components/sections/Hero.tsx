@@ -55,20 +55,20 @@ const img = (filename: string) => encodeURI(`/images/${filename}`);
 
 const carouselItems = [
   {
-    image: img("ChatGPT Image Aug 16, 2026, 04_52_23 PM.png"),
-    alt: "ARMOURIXX security operative — elite protection at luxury premises",
+    image: img("optimized/Corporate-Security-Formation.jpg"),
+    alt: "ARMOURIXX corporate security team in formation",
   },
   {
-    image: img("Armed Security Guards.jpg"),
-    alt: "Armed security guards — professional field deployment",
+    image: img("optimized/Urban-Security-Rapid-Response.jpg"),
+    alt: "ARMOURIXX urban security rapid response unit",
   },
   {
-    image: img("Retrato de guardia de seguridad masculino con estación de radio _ Foto Premium.jpg"),
-    alt: "Security guard with radio — on-site communications and patrol readiness",
+    image: img("optimized/Modern-Security-Control-Room-Guard.jpg"),
+    alt: "ARMOURIXX guard monitoring a modern security control room",
   },
   {
-    image: img("How Does a Security Guard Company in Ventura___.jpg"),
-    alt: "Professional security team — comprehensive protection programs",
+    image: img("optimized/Strategic-Security-Planning-Meeting.jpg"),
+    alt: "ARMOURIXX strategic security planning meeting",
   },
 ];
 

@@ -537,7 +537,7 @@ const DepthCarousel = ({
               role="tab"
               aria-selected={active === i}
               aria-label={`Go to slide ${i + 1}`}
-              className={`depth-carousel__dot${active === i ? " is-active" : ""}`}
+              className={`depth-carousel__dot no-min-tap${active === i ? " is-active" : ""}`}
               onClick={() => setFocus(i, true)}
             />
           ))}

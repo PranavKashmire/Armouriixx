@@ -80,8 +80,8 @@ export const armourixxDifference: DifferencePillar[] = [
     chapter: "Pillar IV — Speed & Precision",
     proof: "Sub-15 min SLA · GPS-tracked units",
     image:
-      "https://images.unsplash.com/photo-1521737714892-dcf1894da8d2?w=1200&h=800&fit=crop&q=85",
-    imageAlt: "Rapid response security team mobilizing for deployment",
+      encodeURI("/images/Why Should Hire Security Services.jpg"),
+    imageAlt: "Security officer coordinating a rapid response by radio",
     gridClass: "lg:col-span-12",
     minHeight: "min-h-[400px] lg:min-h-[460px]",
   },

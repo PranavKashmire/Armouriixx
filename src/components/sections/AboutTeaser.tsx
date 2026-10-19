@@ -9,22 +9,25 @@ const pillars = [
   {
     icon: <Shield className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "Discipline",
+    image: "/images/optimized/Corporate-Security-Formation.jpg",
     desc: "Every operative is vetted, protocol-trained, and deployed against operational benchmarks — not posted at random.",
   },
   {
     icon: <Target className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "Precision",
+    image: "/images/optimized/manned.jpg",
     desc: "GPS-tracked patrols, advance planning, and digital incident reporting — zero margin for operational blind spots.",
   },
   {
     icon: <Eye className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "Protection",
+    image: "/images/optimized/crowd.jpg",
     desc: "From boardrooms to concert stages — we protect lives, assets, and reputations with quiet, uncompromising presence.",
   },
 ];
 
 const ABOUT_IMAGE =
-  "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=900&h=1100&fit=crop&q=85";
+  "/images/optimized/Armourixx-Multi-Sector-Security-Guard-1.jpg";
 
 export default function AboutTeaser() {
   return (
@@ -47,7 +50,7 @@ export default function AboutTeaser() {
               >
                 <Image
                   src={ABOUT_IMAGE}
-                  alt="ARMOURIXX security operative on professional patrol"
+                  alt="ARMOURIXX multi-sector security guard"
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 480px"
                   className="object-cover"
@@ -107,14 +110,22 @@ export default function AboutTeaser() {
               {pillars.map((p, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 sm:gap-0 sm:flex-col sm:items-center p-4 sm:p-0 rounded-sm border border-[var(--glass-border)] sm:border-none bg-[var(--ink-3)]/40 sm:bg-transparent"
+                  className="flex flex-col overflow-hidden rounded-sm border border-[var(--glass-border)] bg-[var(--ink-3)]/40"
                 >
-                  <div
-                    className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 glass-gold rounded-sm sm:mb-3 text-[var(--gold)] shrink-0"
-                  >
-                    {p.icon}
+                  <div className="relative w-full aspect-[16/10] sm:aspect-[4/3]">
+                    <Image
+                      src={p.image}
+                      alt={`ARMOURIXX ${p.title.toLowerCase()}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 200px"
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)]/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-2 left-2 inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 glass-gold rounded-sm text-[var(--gold)]">
+                      {p.icon}
+                    </div>
                   </div>
-                  <div className="text-left sm:text-center min-w-0 flex-1">
+                  <div className="text-left sm:text-center min-w-0 flex-1 p-4 sm:p-3">
                     <h4 className="font-[var(--font-display)] text-sm sm:text-base tracking-widest text-[var(--cream)] mb-1 sm:mb-2">
                       {p.title}
                     </h4>

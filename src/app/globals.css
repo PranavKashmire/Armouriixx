@@ -181,6 +181,34 @@ svg {
   }
 }
 
+/* Phones — keep micro-labels legible (desktop sizes untouched) */
+@media (max-width: 639px) {
+  html .text-\[7px\],
+  html .text-\[8px\],
+  html .text-\[9px\],
+  html .text-\[0\.6rem\],
+  html .cinema-story-line__label,
+  html .cap-card__hero-badge,
+  html .cap-card__chapter,
+  html .cap-card__hud,
+  html .cap-card__cta,
+  html .cap-card__gallery-hint,
+  html .diff-card__hero-label,
+  html .diff-card__chapter,
+  html .diff-card__meta,
+  html .diff-card__cta,
+  html .core-capabilities__section-meta,
+  html .armourixx-difference__section-meta,
+  html .guard-tech-usp__badge,
+  html .guard-tech-usp__pillar-index,
+  html .guard-tech-usp__pillar-tag,
+  html .nightclub-bouncers__badge,
+  html .nightclub-bouncers__status,
+  html .cap-lightbox__meta {
+    font-size: 10px;
+  }
+}
+
 body.nav-open {
   overflow: hidden;
   touch-action: none;

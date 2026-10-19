@@ -69,7 +69,7 @@ export default function StatsBar() {
                 <p
                   className="font-[var(--font-display)] uppercase mb-1.5 transition-colors duration-300 group-hover:text-[var(--gold-light)]"
                   style={{
-                    fontSize: "clamp(0.6rem, 1vw, 0.78rem)",
+                    fontSize: "clamp(0.68rem, 1vw, 0.78rem)",
                     color: "var(--cream)",
                     letterSpacing: "0.22em",
                   }}

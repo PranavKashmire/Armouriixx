@@ -95,7 +95,7 @@ export default function ServiceLightbox({
           <div className="cap-lightbox__image-frame">
             {service.images.map((img, i) => (
               <div
-                key={img.src}
+                key={`${i}-${img.src}`}
                 className={cn(
                   "cap-lightbox__slide",
                   i === activeImage && "is-active"
@@ -153,7 +153,7 @@ export default function ServiceLightbox({
         >
           {service.images.map((img, i) => (
             <button
-              key={img.src}
+              key={`${i}-${img.src}`}
               type="button"
               role="tab"
               aria-selected={i === activeImage}

@@ -82,7 +82,7 @@ export default function CoreCapabilities() {
   }, []);
 
   useEffect(() => {
-    const mqDesktop = window.matchMedia("(min-width: 1024px)");
+    const mqDesktop = window.matchMedia("(min-width: 1024px) and (hover: hover)");
 
     const updateDesktop = () => setIsDesktop(mqDesktop.matches);
 
@@ -348,7 +348,7 @@ export default function CoreCapabilities() {
               total={coreServices.length}
               index={i}
               imagePosition={i % 2 === 0 ? "left" : "right"}
-              isHovered={hoverIndex === i}
+              isHovered={isDesktop ? hoverIndex === i : scrollActiveIndex === i}
               isDimmed={
                 isDesktop &&
                 hoverIndex !== null &&

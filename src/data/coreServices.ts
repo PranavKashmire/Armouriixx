@@ -45,12 +45,12 @@ export const coreServices: CoreService[] = [
     ],
     images: [
       {
-        src: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&h=1000&fit=crop&q=85",
-        alt: "Executive protection officer in professional attire",
+        src: "/images/optimized/Executive-Protection-at-Glass-Tower.jpg",
+        alt: "Executive protection officer at a glass office tower",
       },
       {
-        src: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600&h=1000&fit=crop&q=85",
-        alt: "Executive convoy on urban route",
+        src: "/images/optimized/Celebrity-Arrival-with-Security-Escort-1.jpg",
+        alt: "Celebrity arrival with close protection escort",
       },
       {
         src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1600&h=1000&fit=crop&q=85",
@@ -87,12 +87,12 @@ export const coreServices: CoreService[] = [
     ],
     images: [
       {
-        src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&h=1000&fit=crop&q=85",
-        alt: "Uniformed security personnel at premium facility entrance",
+        src: "/images/optimized/Close-Up-of-Security-Officer-with-Body-Camera.jpg",
+        alt: "Security officer with body-worn camera",
       },
       {
-        src: "https://images.unsplash.com/photo-1589829545856-d10d45c6e953?w=1600&h=1000&fit=crop&q=85",
-        alt: "Security guard monitoring building entrance",
+        src: "/images/optimized/security-guard-workspace-2.jpg",
+        alt: "Security guard at a monitored workspace",
       },
       {
         src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=1000&fit=crop&q=85",
@@ -128,12 +128,12 @@ export const coreServices: CoreService[] = [
     ],
     images: [
       {
-        src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&h=1000&fit=crop&q=85",
-        alt: "Security team managing a large luxury event",
+        src: "/images/optimized/Nightclub-VIP-Security-Entrance-2.jpg",
+        alt: "VIP entrance security at a premium venue",
       },
       {
-        src: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1600&h=1000&fit=crop&q=85",
-        alt: "Large-scale concert event with crowd management",
+        src: "/images/optimized/ChatGPT-Image-Sep-19-2026-04-11-25-PM-3.jpg",
+        alt: "ARMOURIXX event security team on duty",
       },
       {
         src: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1600&h=1000&fit=crop&q=85",
@@ -169,12 +169,12 @@ export const coreServices: CoreService[] = [
     ],
     images: [
       {
-        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=1000&fit=crop&q=85",
-        alt: "Control room operators monitoring surveillance screens",
+        src: "/images/optimized/Strategic-Security-Planning-Meeting-1.jpg",
+        alt: "Control room team planning security operations",
       },
       {
-        src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&h=1000&fit=crop&q=85",
-        alt: "Modern security monitoring workstation",
+        src: "/images/optimized/male-security-guard-using-radio-transmitter-surveillance-room.jpg",
+        alt: "Guard using a radio in the surveillance room",
       },
       {
         src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&h=1000&fit=crop&q=85",
@@ -210,16 +210,16 @@ export const coreServices: CoreService[] = [
     ],
     images: [
       {
-        src: "https://images.unsplash.com/photo-1521737714892-dcf1894da8d2?w=1600&h=1000&fit=crop&q=85",
-        alt: "Professional response team preparing for deployment",
+        src: "/images/optimized/Urban-Security-Rapid-Response-1.jpg",
+        alt: "Urban rapid response security unit",
       },
       {
-        src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&h=1000&fit=crop&q=85",
-        alt: "Emergency response coordination center",
+        src: "/images/optimized/Security-Team-Managing-Event-Crowd-1.jpg",
+        alt: "Security team managing an event crowd",
       },
       {
-        src: "https://images.unsplash.com/photo-1573497019940-9c28c1d0e0e1?w=1600&h=1000&fit=crop&q=85",
-        alt: "Security team in tactical briefing",
+        src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&h=1000&fit=crop&q=85",
+        alt: "Response team planning briefing",
       },
       {
         src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&h=1000&fit=crop&q=85",
@@ -251,12 +251,12 @@ export const coreServices: CoreService[] = [
     ],
     images: [
       {
-        src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=1000&fit=crop&q=85",
-        alt: "Security personnel protecting a modern corporate headquarters",
+        src: "/images/optimized/Corporate-and-Commercial.jpg",
+        alt: "Corporate and commercial security deployment",
       },
       {
-        src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&h=1000&fit=crop&q=85",
-        alt: "Corporate office tower with security presence",
+        src: "/images/optimized/ChatGPT-Image-Sep-19-2026-04-11-25-PM-4.jpg",
+        alt: "ARMOURIXX corporate security team",
       },
       {
         src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&h=1000&fit=crop&q=85",

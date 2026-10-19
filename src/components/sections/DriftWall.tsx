@@ -6,7 +6,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import BlurFadeIn from "@/components/ui/BlurFadeIn";
 
 const driftItems = [
-  { image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop", title: "Guard Patrol" },
+  { image: encodeURI("/images/Armed Security Guards.jpg"), title: "Guard Patrol" },
   { image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop", title: "Corporate Security" },
   { image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop", title: "CCTV Control Room" },
   { image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop", title: "Event Security" },

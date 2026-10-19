@@ -26,7 +26,7 @@ export default function HeroMobileCarousel({
     <div className="w-full">
       <div
         className="relative w-full overflow-hidden rounded-[20px] border border-[rgba(220, 43, 27,0.18)] bg-[#0b0d12] shadow-[0_24px_48px_-16px_rgba(0,0,0,0.65)]"
-        style={{ aspectRatio: "3 / 4", maxHeight: "min(72vh, 520px)" }}
+        style={{ aspectRatio: "3 / 4", maxHeight: "min(48svh, 480px)" }}
       >
         <Image
           key={item.image}
@@ -46,7 +46,7 @@ export default function HeroMobileCarousel({
       </div>
 
       <div
-        className="flex justify-center items-center gap-2 mt-3"
+        className="flex justify-center items-center gap-1 mt-1"
         role="tablist"
         aria-label="Hero slides"
       >
@@ -58,12 +58,16 @@ export default function HeroMobileCarousel({
             aria-selected={safeIndex === i}
             aria-label={`Slide ${i + 1}`}
             onClick={() => onSelect(i)}
-            className={`rounded-full transition-all duration-300 shrink-0 ${
-              safeIndex === i
-                ? "w-6 h-1.5 bg-[var(--gold)]"
-                : "w-1.5 h-1.5 bg-[var(--gold)]/35"
-            }`}
-          />
+            className="flex items-center justify-center h-11 px-1 shrink-0"
+          >
+            <span
+              className={`block rounded-full transition-all duration-300 ${
+                safeIndex === i
+                  ? "w-6 h-1.5 bg-[var(--gold)]"
+                  : "w-1.5 h-1.5 bg-[var(--gold)]/35"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>

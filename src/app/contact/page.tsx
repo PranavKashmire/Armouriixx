@@ -261,7 +261,7 @@ export default function ContactPage() {
                           <p className="text-xs text-[var(--cream-muted)] tracking-wider uppercase font-semibold mb-1">Phone</p>
                           <a
                             href={`tel:${siteConfig.contact.phoneTel}`}
-                            className="text-[var(--cream)] text-sm hover:text-[var(--gold)] transition-colors"
+                            className="inline-block py-2 -my-2 text-[var(--cream)] text-sm hover:text-[var(--gold)] transition-colors"
                           >
                             {siteConfig.contact.phone}
                           </a>
@@ -278,7 +278,7 @@ export default function ContactPage() {
                             href={waUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[var(--cream)] text-sm hover:text-[var(--gold)] transition-colors"
+                            className="inline-block py-2 -my-2 text-[var(--cream)] text-sm hover:text-[var(--gold)] transition-colors"
                           >
                             Message Command Desk
                           </a>
@@ -293,7 +293,7 @@ export default function ContactPage() {
                           <p className="text-xs text-[var(--cream-muted)] tracking-wider uppercase font-semibold mb-1">Email</p>
                           <a
                             href={`mailto:${siteConfig.contact.email}`}
-                            className="text-[var(--cream)] text-sm hover:text-[var(--gold)] transition-colors break-all"
+                            className="inline-block py-2 -my-2 text-[var(--cream)] text-sm hover:text-[var(--gold)] transition-colors break-all"
                           >
                             {siteConfig.contact.email}
                           </a>

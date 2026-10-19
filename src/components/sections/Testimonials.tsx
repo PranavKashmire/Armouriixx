@@ -6,6 +6,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import BlurFadeIn from "@/components/ui/BlurFadeIn";
 import GlassCard from "@/components/ui/GlassCard";
 
+const PROOF_IMAGE = "/images/optimized/Modern-Security-Control-Room-Guard.jpg";
+
 const testimonials = [
   {
     name: "Corporate Security Lead",
@@ -14,7 +16,7 @@ const testimonials = [
     quote:
       "For the first time, we had GPS-tracked patrols and digital incident logs on every shift. ARMOURIXX didn't just post guards — they gave us a command view of our security.",
     highlight: "Command Visibility",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000&q=80",
+    image: PROOF_IMAGE,
   },
   {
     name: "Events Director",
@@ -23,7 +25,7 @@ const testimonials = [
     quote:
       "5,000 attendees, zero incidents. Their crowd management was surgical — briefing, perimeter, VIP lanes, and exit control were executed like a planned operation.",
     highlight: "Zero Incidents",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1000&q=80",
+    image: PROOF_IMAGE,
   },
   {
     name: "Private Principal",
@@ -32,7 +34,7 @@ const testimonials = [
     quote:
       "Discreet, disciplined, and always ahead of the schedule. The close protection team integrates seamlessly — you feel protected, never surveilled.",
     highlight: "Discreet & Precise",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1000&q=80",
+    image: PROOF_IMAGE,
   },
   {
     name: "Hospitality GM",
@@ -41,7 +43,7 @@ const testimonials = [
     quote:
       "Guests never notice the security team — which is exactly what luxury hospitality demands. Seamless integration with our front-of-house operations.",
     highlight: "Invisible Presence",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1000&q=80",
+    image: PROOF_IMAGE,
   },
 ];
 
@@ -164,18 +166,22 @@ export default function Testimonials() {
             </p>
 
             <div className="flex flex-col-reverse sm:flex-row items-center sm:items-center justify-between gap-4">
-              <div className="flex gap-2 justify-center sm:justify-start">
+              <div className="flex gap-0.5 justify-center sm:justify-start">
                 {testimonials.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => goTo(i)}
-                    className={`transition-all duration-300 rounded-full ${
-                      i === active
-                        ? "w-8 h-2 bg-[var(--gold)]"
-                        : "w-2 h-2 bg-[var(--cream-muted)]/40 hover:bg-[var(--cream-muted)]"
-                    }`}
+                    className="group flex items-center justify-center h-11 px-1"
                     aria-label={`Go to testimonial ${i + 1}`}
-                  />
+                  >
+                    <span
+                      className={`block transition-all duration-300 rounded-full ${
+                        i === active
+                          ? "w-8 h-2 bg-[var(--gold)]"
+                          : "w-2 h-2 bg-[var(--cream-muted)]/40 group-hover:bg-[var(--cream-muted)]"
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
 

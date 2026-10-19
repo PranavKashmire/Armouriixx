@@ -102,7 +102,17 @@ function BulletItem({ text, delay }: { text: string; delay: number }) {
 }
 
 /* ── Tilt-tracked image panel ────────────────────────────────────── */
-function TiltImage({ src, alt, flip = false }: { src: string; alt: string; flip?: boolean }) {
+function TiltImage({
+  src,
+  alt,
+  flip = false,
+  position = "center",
+}: {
+  src: string;
+  alt: string;
+  flip?: boolean;
+  position?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const rx = useMotionValue(0);
   const ry = useMotionValue(0);
@@ -134,7 +144,10 @@ function TiltImage({ src, alt, flip = false }: { src: string; alt: string; flip?
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         className="relative w-full h-full rounded-lg overflow-hidden"
       >
-        <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: `url('${src}')` }} />
+        <div
+          className="absolute inset-0 bg-cover scale-105"
+          style={{ backgroundImage: `url('${src}')`, backgroundPosition: position }}
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/20 via-transparent to-[var(--ink)]/60 mix-blend-multiply" />
         <div className={`absolute inset-0 bg-gradient-to-${flip ? "r" : "l"} from-[var(--ink)] via-[var(--ink)]/20 to-transparent`} />
         <div className="absolute inset-0 rounded-lg border border-[var(--gold)]/20 pointer-events-none" />
@@ -189,6 +202,7 @@ interface SectionCardProps {
   bullets: string[];
   imageSrc: string;
   imageAlt: string;
+  imagePosition?: string;
   flip?: boolean;
   bgClass?: string;
 }
@@ -202,6 +216,7 @@ function SectionCard({
   bullets,
   imageSrc,
   imageAlt,
+  imagePosition,
   flip = false,
   bgClass = "bg-[var(--ink)]",
 }: SectionCardProps) {
@@ -216,7 +231,7 @@ function SectionCard({
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
     >
-      <TiltImage src={imageSrc} alt={imageAlt} flip={flip} />
+      <TiltImage src={imageSrc} alt={imageAlt} flip={flip} position={imagePosition} />
     </motion.div>
   );
 
@@ -317,8 +332,9 @@ export default function MissionVision() {
           "Protect lives, assets, and reputations with uncompromising vigilance.",
           "Integrate real-time GPS tracking and body-cam accountability on every shift.",
         ]}
-        imageSrc="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80"
-        imageAlt="Security professionals in formation"
+        imageSrc="/images/optimized/mission.jpg"
+        imageAlt="ARMOURIXX mission — purpose-driven protection"
+        imagePosition="center bottom"
         bgClass="bg-[var(--ink)]"
         flip={false}
       />
@@ -342,8 +358,9 @@ export default function MissionVision() {
           "Build technology-first infrastructure: AI surveillance, predictive threat detection.",
           "Earn the trust of governments, enterprises, and citizens across every sector.",
         ]}
-        imageSrc="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200&q=80"
-        imageAlt="Security command centre with live monitoring"
+        imageSrc="/images/optimized/vision.jpg"
+        imageAlt="ARMOURIXX vision — setting new benchmarks"
+        imagePosition="center bottom"
         bgClass="bg-[var(--ink)]"
         flip={true}
       />

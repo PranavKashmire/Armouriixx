@@ -26,38 +26,38 @@ export const nightclubBouncersContent = {
   ],
   gallery: [
     {
-      src: "https://images.unsplash.com/photo-1571266028243-e473993b2ccb?w=1600&h=1000&fit=crop&q=85",
+      src: "/images/optimized/Nightclub-Security-at-the-Velvet-Rope-1.jpg",
       alt: "Nightclub interior with professional lighting and controlled venue atmosphere",
       caption: "Venue presence",
     },
     {
-      src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&h=1000&fit=crop&q=85",
+      src: "/images/optimized/Nightclub-VIP-Security-Entrance-2.jpg",
       alt: "Nightlife crowd at a premium club with managed entry flow",
       caption: "Peak-hour crowd control",
     },
     {
-      src: "https://images.unsplash.com/photo-1589829545856-d10d45c6e953?w=1600&h=1000&fit=crop&q=85",
+      src: encodeURI("/images/Why Should Hire Security Services.jpg"),
       alt: "Uniformed security professional at venue entrance during night operations",
       caption: "Uniformed door team",
     },
     {
-      src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1600&h=1000&fit=crop&q=85",
+      src: "/images/optimized/VIP-Executive-Protection.jpg",
       alt: "Nightclub DJ booth and VIP zone with security oversight",
       caption: "VIP & artist zones",
     },
     {
-      src: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1600&h=1000&fit=crop&q=85",
+      src: "/images/optimized/ChatGPT-Image-Sep-19-2026-04-11-25-PM-3.jpg",
       alt: "Large nightlife event with layered perimeter and floor security",
       caption: "Event-night deployment",
     },
     {
-      src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&h=1000&fit=crop&q=85",
+      src: "/images/optimized/Nightclub-VIP-Security-Entrance-2.jpg",
       alt: "Professional security team in uniform at hospitality venue",
       caption: "Branded uniform standard",
     },
   ] satisfies NightclubGalleryImage[],
   heroImage: {
-    src: "https://images.unsplash.com/photo-1566417713940-7f41e4adf419?w=1800&h=1100&fit=crop&q=85",
+    src: "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=1800&h=1100&fit=crop&q=85",
     alt: "Premium nightclub venue with professional security operations at night",
   },
 } as const;

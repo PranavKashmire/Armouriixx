@@ -35,8 +35,8 @@ function UaeFlag({ className }: { className?: string }) {
 }
 
 const heroRegions = [
-  { id: "ae", label: "United Arab Emirates", code: "UAE", Flag: UaeFlag },
   { id: "in", label: "India", code: "IND", Flag: IndiaFlag },
+  { id: "ae", label: "United Arab Emirates", code: "UAE", Flag: UaeFlag },
 ] as const;
 
 const inlineRegions = [
@@ -61,7 +61,7 @@ export default function RegionFlags({
     return (
       <div
         className={cn("flex flex-col items-end gap-2 sm:gap-2.5", className)}
-        aria-label="Operations in UAE and India"
+        aria-label="Operations in India and UAE"
       >
         {heroRegions.map(({ id, label, code, Flag }) => (
           <div

@@ -86,7 +86,11 @@ export default function Navbar() {
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-3">
-          <LogoLink size="nav" priority goldPlate />
+          <LogoLink
+            size="nav"
+            priority
+            className="h-14 w-14 sm:h-16 sm:w-16 md:h-[4.5rem] md:w-[4.5rem]"
+          />
 
           <nav
             ref={navRef}

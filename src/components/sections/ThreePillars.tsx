@@ -13,21 +13,21 @@ const pillars = [
     title: "Discipline",
     icon: Shield,
     desc: "Every guard undergoes rigorous background checks, training, and certification. Our operational protocols are strict, repeatable, and non-negotiable.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80",
+    image: "/images/optimized/Corporate-Security-Formation.jpg",
   },
   {
     id: "precision",
     title: "Precision",
     icon: Target,
     desc: "GPS-tracked deployments, time-stamped digital reporting, and AI-assisted surveillance ensure zero blind spots and maximum accountability.",
-    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200&q=80",
+    image: "/images/optimized/manned.jpg",
   },
   {
     id: "protection",
     title: "Protection",
     icon: Eye,
     desc: "We protect lives, assets, and reputations — whether it's a boardroom, an event venue, a luxury resort, or a critical infrastructure site.",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80",
+    image: "/images/optimized/crowd.jpg",
   },
 ];
 
@@ -205,22 +205,24 @@ export default function ThreePillars() {
           <ChevronLeft className={`w-5 h-5 ${active !== 0 ? "group-hover:-translate-x-1 transition-transform" : ""}`} />
         </button>
 
-        <div className="flex gap-2 sm:gap-3">
+        <div className="flex gap-1 sm:gap-2">
           {pillars.map((_, idx) => (
             <button
               key={idx}
               type="button"
               onClick={() => setActive(idx)}
-              className="relative w-8 sm:w-10 h-2 bg-white/10 rounded-full overflow-hidden hover:bg-white/20 transition-colors"
+              className="group flex items-center justify-center h-11 px-0.5"
               aria-label={`Go to pillar ${idx + 1}`}
             >
-              {active === idx && (
-                <motion.div
-                  layoutId="activeIndicator"
-                  className="absolute inset-0 bg-[var(--gold)] rounded-full shadow-[0_0_10px_rgba(220, 43, 27,0.5)]"
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
+              <span className="relative block w-8 sm:w-10 h-2 bg-white/10 rounded-full overflow-hidden group-hover:bg-white/20 transition-colors">
+                {active === idx && (
+                  <motion.span
+                    layoutId="activeIndicator"
+                    className="absolute inset-0 bg-[var(--gold)] rounded-full shadow-[0_0_10px_rgba(220, 43, 27,0.5)]"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </span>
             </button>
           ))}
         </div>

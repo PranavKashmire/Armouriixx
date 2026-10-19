@@ -9,33 +9,35 @@ import AccordionGallery from "@/components/ui/AccordionGallery";
 const galleryItems = [
   {
     id: "vip-protection",
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&h=1200&fit=crop",
+    image: encodeURI("/images/optimized/Celebrity-Arrival-with-Security-Escort.jpg"),
     label: "VIP & Executive Protection",
-    alt: "VIP Executive Protection",
+    alt: "Celebrity arrival with ARMOURIXX close protection escort",
+    position: "45% 28%",
   },
   {
     id: "corporate-security-programs",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=1200&fit=crop",
+    image: encodeURI("/images/optimized/Corporate-and-Commercial-2.jpg"),
     label: "Corporate Security",
-    alt: "Corporate Security",
+    alt: "ARMOURIXX guard securing a corporate office entrance",
+    position: "34% 25%",
   },
   {
     id: "event-security",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&h=1200&fit=crop",
+    image: encodeURI("/images/optimized/event-security.jpg"),
     label: "Event Security",
-    alt: "Event Security",
+    alt: "ARMOURIXX event security team managing a live event",
   },
   {
     id: "surveillance-control-room",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&h=1200&fit=crop",
+    image: "/images/optimized/survillenceRoom.jpg",
     label: "Surveillance & Control Room",
-    alt: "Surveillance Control Room",
+    alt: "ARMOURIXX surveillance and control room operations",
   },
   {
     id: "manned-guarding",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=900&h=1200&fit=crop",
+    image: "/images/optimized/manned.jpg",
     label: "Manned Guarding",
-    alt: "Manned Guarding",
+    alt: "ARMOURIXX manned guarding on site",
   },
 ];
 
@@ -202,7 +204,7 @@ export default function ServicesGrid() {
         <BlurFadeIn className="mt-10 sm:mt-12 text-center" delay={600}>
           <Link
             href="/services"
-            className="inline-flex items-center justify-center gap-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-300 hover:text-[var(--gold)] px-2"
+            className="inline-flex items-center justify-center gap-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-300 hover:text-[var(--gold)] px-2 min-h-11 py-3"
             style={{ color: "rgba(184,180,168,0.55)" }}
           >
             View all 12 industries we serve

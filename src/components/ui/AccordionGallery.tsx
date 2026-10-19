@@ -9,6 +9,8 @@ interface AccordionItem {
   label?: string;
   link?: string;
   alt?: string;
+  /** CSS object-position focal point, e.g. "45% 25%" */
+  position?: string;
 }
 
 interface AccordionGalleryProps {
@@ -208,7 +210,12 @@ export default function AccordionGallery({
       <span className="ag-panel__frame">
         <span className="ag-panel__media" ref={(el) => { mediaRefs.current[i] = el; }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={item.image} alt={item.alt || item.label || ''} draggable={false} />
+          <img
+            src={item.image}
+            alt={item.alt || item.label || ''}
+            draggable={false}
+            style={item.position ? { objectPosition: item.position } : undefined}
+          />
         </span>
         <span className="ag-panel__overlay" aria-hidden="true" />
       </span>

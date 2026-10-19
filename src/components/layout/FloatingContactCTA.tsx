@@ -11,14 +11,14 @@ export default function FloatingContactCTA() {
 
   return (
     <div
-      className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-2 sm:gap-3"
+      className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-2 sm:gap-3"
       aria-label="Quick contact"
     >
       <Link
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center gap-2 pl-3 pr-4 py-3 rounded-sm bg-[#25D366] text-white shadow-lg shadow-black/40 hover:scale-[1.03] transition-transform duration-300"
+        className="group flex items-center justify-center gap-2 w-11 h-11 rounded-full sm:w-auto sm:h-auto sm:pl-3 sm:pr-4 sm:py-3 sm:rounded-sm bg-[#25D366] text-white shadow-lg shadow-black/40 hover:scale-[1.03] transition-transform duration-300"
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle className="w-5 h-5 shrink-0" />
@@ -28,7 +28,7 @@ export default function FloatingContactCTA() {
       </Link>
       <a
         href={`tel:${siteConfig.contact.phoneTel}`}
-        className="group flex items-center gap-2 pl-3 pr-4 py-3 rounded-sm glass-gold text-[var(--cream)] shadow-lg shadow-black/40 hover:scale-[1.03] transition-transform duration-300"
+        className="group flex items-center justify-center gap-2 w-11 h-11 rounded-full sm:w-auto sm:h-auto sm:pl-3 sm:pr-4 sm:py-3 sm:rounded-sm glass-gold text-[var(--cream)] shadow-lg shadow-black/40 hover:scale-[1.03] transition-transform duration-300"
         aria-label="Call ARMOURIXX"
       >
         <Phone className="w-5 h-5 text-[var(--gold)] shrink-0" />

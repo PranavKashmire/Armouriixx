@@ -34,7 +34,7 @@ export default function ArmourixxDifference() {
   }, []);
 
   useEffect(() => {
-    const mqDesktop = window.matchMedia("(min-width: 1024px)");
+    const mqDesktop = window.matchMedia("(min-width: 1024px) and (hover: hover)");
     const update = () => setIsDesktop(mqDesktop.matches);
     update();
     mqDesktop.addEventListener("change", update);
@@ -286,7 +286,11 @@ export default function ArmourixxDifference() {
               total={armourixxDifference.length}
               index={i}
               imagePosition={i % 2 === 0 ? "left" : "right"}
-              isHovered={isDesktop ? hoverIndex === i : activeIndex === i}
+              isHovered={
+                isDesktop
+                  ? hoverIndex === i
+                  : scrollActiveIndex === i || activeIndex === i
+              }
               isDimmed={
                 isDesktop &&
                 hoverIndex !== null &&
